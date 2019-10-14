@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[這是一篇測試用的中文文章]]></title>
-    <url>%2F2019%2F07%2F24%2F2019-7-24-hello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-      <categories>
-        <category>Test</category>
-      </categories>
+    <title><![CDATA[JavaScript - 關於物件存取屬性的方法]]></title>
+    <url>%2F2019%2F08%2F16%2F2019-8-16-about-assess-object's%20properties%2F</url>
+    <content type="text"><![CDATA[點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &#123; name: &#123; first: '弟弟', last: '帥氣' &#125;, age: 20, interests: ['打球', '看電視', '睡覺'], sayHello: function() &#123; console.log('Hello') &#125;&#125; 123person.age //目標物件的屬性，20person.interests[1] //陣列屬性，看電視person.sayHello() //呼叫函式，Hello 括弧記法 (Bracket notation)括弧記法則是另一個存取屬性的方法，是透過各屬性相關的名稱來選擇項目 12person['age'] // 20person['name']['first'] // 弟弟]]></content>
       <tags>
-        <tag>前端文</tag>
-        <tag>後端文</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>
