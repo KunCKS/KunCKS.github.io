@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://i.imgur.com/896UsRg.png">
 <meta property="og:image" content="https://i.imgur.com/novMzfY.png">
 <meta property="og:image" content="https://i.imgur.com/USOiiUi.png">
-<meta property="og:updated_time" content="2019-10-16T05:17:39.269Z">
+<meta property="og:updated_time" content="2019-10-16T05:20:32.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript核心概念-LHS、RHS是什麼？">
 <meta name="twitter:description" content="原始碼語法錯誤首先，當我們在原始碼上使用到錯誤的語法時，console 都會顯示錯誤，這是原始碼在直譯器編譯過程中發生了錯誤。從下圖來看，我們在賦予字串這個值時，少了一個引號，console.log 則是少了括號，造成直譯器無法編譯。&amp;nbsp;因此，我們在撰寫 JavaScript 時，可能會很常在變數與值的語法上發生一些錯誤，接下來我們將了解 LHS 和 RHS 概念，用來排除錯誤。LHS 和">
@@ -391,7 +391,7 @@
                 
               
 
-              <time title="創建時間：2019-10-16 11:20:21 / 修改時間：13:17:39" itemprop="dateCreated datePublished" datetime="2019-10-16T11:20:21+08:00">2019-10-16</time>
+              <time title="創建時間：2019-10-16 11:20:21 / 修改時間：13:20:32" itemprop="dateCreated datePublished" datetime="2019-10-16T11:20:21+08:00">2019-10-16</time>
             </span>
           
 
@@ -450,7 +450,7 @@
       
 
       
-        <h2 id="原始碼語法錯誤"><a href="#原始碼語法錯誤" class="headerlink" title="原始碼語法錯誤"></a>原始碼語法錯誤</h2><p>首先，當我們在原始碼上使用到錯誤的語法時，console 都會顯示錯誤，這是原始碼在直譯器編譯過程中發生了錯誤。從下圖來看，我們在賦予字串這個值時，少了一個引號，console.log 則是少了括號，造成直譯器無法編譯。<br>&nbsp;<br><img src="https://i.imgur.com/896UsRg.png" alt="原始碼語法錯誤"><br>因此，我們在撰寫 JavaScript 時，可能會很常在變數與值的語法上發生一些錯誤，接下來我們將了解 LHS 和 RHS 概念，用來排除錯誤。<br>LHS 和 RHS 概念是對變數與值的查詢、操作，其區分如下：</p>
+        <h2 id="原始碼語法錯誤"><a href="#原始碼語法錯誤" class="headerlink" title="原始碼語法錯誤"></a>原始碼語法錯誤</h2><p>首先，當我們在原始碼上使用到錯誤的語法時，console 都會顯示錯誤，這是原始碼在直譯器編譯過程中發生了錯誤。從下圖來看，我們在賦予字串這個值時，少了一個引號，<code>console.log</code> 則是少了括號，造成直譯器無法編譯。<br>&nbsp;<br><img src="https://i.imgur.com/896UsRg.png" alt="原始碼語法錯誤"><br>因此，我們在撰寫 JavaScript 時，可能會很常在變數與值的語法上發生一些錯誤，接下來我們將了解 LHS 和 RHS 概念，用來排除錯誤。<br>LHS 和 RHS 概念是對變數與值的查詢、操作，其區分如下：</p>
 <ul>
 <li>LHS (Left-hand Side)<ul>
 <li>用來賦予值到左側的變數上</li>
@@ -462,7 +462,7 @@
 </li>
 </ul>
 <h2 id="LHS-Left-hand-Side"><a href="#LHS-Left-hand-Side" class="headerlink" title="LHS (Left-hand Side)"></a>LHS (Left-hand Side)</h2><p>從圖中的範例我們可以看到，在編譯過程中這邊宣告一個變數並將值賦予到左側的變數上，這個過程稱為 LHS 。<br>但是，若我們將左側改成字串，並賦予 1 這個值呢？<br>我們可以發現 console 會出現錯誤，這個錯誤是指左邊的變數是無法被賦予的，因此當我們在開發時出現這樣的錯誤就可以對此進行修正。<strong>另外，這段錯誤是屬於編譯過程中所發生的錯誤，在這樣的情形下會連編譯的結果都無法生成。</strong><br>&nbsp;<br><img src="https://i.imgur.com/novMzfY.png" alt="LHS編譯錯誤"></p>
-<h2 id="RHS-Right-hand-Side"><a href="#RHS-Right-hand-Side" class="headerlink" title="RHS (Right-hand Side)"></a>RHS (Right-hand Side)</h2><p>從圖中的範例我們可以看到，宣告一個 ASin 變數並從右邊的 style 變數取得他的值，我們稱為 RHS，同樣的第一個console.log() 從右邊的 ASin 取得值，並呈現在 console 中也是 RHS 。<br>那 RHS 可能會發生什麼樣的錯誤呢？<br>當我們console.log()去取一個未宣告的變數時，他就會產生錯誤。但是，這邊要注意的是，我們可以發現console.log(ASi)是我們在輸入執行後才產生沒有定義的錯誤，並不是在編譯過程就產生錯誤，所以我們可以下一個結論，<strong>RHS 在編譯過程中不會產生錯誤，而是在執行時才發現錯誤</strong>。<br>&nbsp;<br><img src="https://i.imgur.com/USOiiUi.png" alt="RHS概念"></p>
+<h2 id="RHS-Right-hand-Side"><a href="#RHS-Right-hand-Side" class="headerlink" title="RHS (Right-hand Side)"></a>RHS (Right-hand Side)</h2><p>從圖中的範例我們可以看到，宣告一個 <code>ASin</code> 變數並從右邊的 <code>style</code> 變數取得他的值，我們稱為 RHS，同樣的第一個 <code>console.log()</code> 從右邊的 <code>ASin</code> 取得值，並呈現在 console 中也是 RHS 。<br>那 RHS 可能會發生什麼樣的錯誤呢？<br>當我們 <code>console.log()</code>去取一個未宣告的變數時，他就會產生錯誤。但是，這邊要注意的是，我們可以發現 <code>console.log(ASi)</code> 是我們在輸入執行後才產生沒有定義的錯誤，並不是在編譯過程就產生錯誤，所以我們可以下一個結論，<strong>RHS 在編譯過程中不會產生錯誤，而是在執行時才發現錯誤</strong>。<br>&nbsp;<br><img src="https://i.imgur.com/USOiiUi.png" alt="RHS概念"></p>
 
       
     </div>
