@@ -94,14 +94,26 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="標籤">
-<meta property="og:url" content="https://kuncks.github.io/tags/index.html">
+  <meta name="description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript核心概念-JavaScript是如何運行？">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
+<meta property="og:description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-07-25T01:18:40.717Z">
+<meta property="og:image" content="https://i.imgur.com/piO5rg7.png">
+<meta property="og:image" content="https://i.imgur.com/0ffPBoS.png">
+<meta property="og:image" content="https://i.imgur.com/l9LoxoY.png">
+<meta property="og:image" content="https://i.imgur.com/HpWBe9D.png">
+<meta property="og:image" content="https://i.imgur.com/TqmBcEG.png">
+<meta property="og:image" content="https://i.imgur.com/2fhZJXG.png">
+<meta property="og:image" content="https://i.imgur.com/yeOXKdA.png">
+<meta property="og:updated_time" content="2019-10-16T03:04:42.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="標籤">
+<meta name="twitter:title" content="JavaScript核心概念-JavaScript是如何運行？">
+<meta name="twitter:description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
+<meta name="twitter:image" content="https://i.imgur.com/piO5rg7.png">
 
 
 
@@ -109,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/tags/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/">
 
 
 
@@ -120,7 +132,7 @@
 </script>
 
   
-  <title>標籤 | ASin's Web Learning</title>
+  <title>JavaScript核心概念-JavaScript是如何運行？ | ASin's Web Learning</title>
   
 
 
@@ -222,7 +234,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -320,90 +332,227 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ASin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ASin's Web Learning">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">標籤
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-JavaScript是如何運行？
+
               
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
               
                 
-                  
+              
+
+              <time title="創建時間：2019-10-16 09:32:05 / 修改時間：11:04:42" itemprop="dateCreated datePublished" datetime="2019-10-16T09:32:05+08:00">2019-10-16</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript核心概念/" itemprop="url" rel="index"><span itemprop="name">JavaScript核心概念</span></a></span>
+
+                
                 
               
-              目前共有 1 個標籤
-            </div>
-            <div class="tag-cloud-tags">
-              
-                <a href="/tags/JavaScript/" style="font-size: 12px; color: #ccc">JavaScript</a>
-              
-            </div>
-          </div>
-        
-      </div>
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p> 在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言：</p>
+<h2 id="編譯式語言-Compiled-language"><a href="#編譯式語言-Compiled-language" class="headerlink" title="編譯式語言(Compiled language)"></a>編譯式語言(Compiled language)</h2><p>在我們寫好原始碼時，會先透過編譯器(compiler)<strong>預先編譯完成</strong>並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：</p>
+<ul>
+<li>編譯時即可除錯。</li>
+<li>預先定義的型別。</li>
+<li>型別檢查 (type check)。</li>
+<li>擁有高效能的執行速度等特性。</li>
+<li>可獨立執行。</li>
+</ul>
+<p><img src="https://i.imgur.com/piO5rg7.png" alt="編譯式語言"></p>
+<h2 id="直譯式語言-Interpreted-language"><a href="#直譯式語言-Interpreted-language" class="headerlink" title="直譯式語言(Interpreted language)"></a>直譯式語言(Interpreted language)</h2><p>不同於編譯式語言，直譯式語言在執行時會一行一行的動態將程式碼直譯為代碼，並執行，因此會有下列的特色：</p>
+<ul>
+<li>錯誤直接反映在環境上。</li>
+<li>不用預先定義的型別。</li>
+<li>動態生成。</li>
+<li>程式彈性。</li>
+<li>速度會比編譯式語言要慢一些。</li>
+<li>無法獨立運行，可用的功能由執行環境所提供。</li>
+</ul>
+<p><img src="https://i.imgur.com/0ffPBoS.png" alt="直譯式語言"></p>
+<h2 id="JavaScript-直譯器的轉換過程"><a href="#JavaScript-直譯器的轉換過程" class="headerlink" title="JavaScript 直譯器的轉換過程"></a>JavaScript 直譯器的轉換過程</h2><p>在直譯器的轉換過程中，首先會將語法單元化（Tokenizing），然後透過抽象結構樹（Abstract Syntax Tree ）將原始碼的結構定義出來，最後生成代碼運行。<br><img src="https://i.imgur.com/l9LoxoY.png" alt="JavaScript直譯器轉換過程"><br>接下來我們利用 <a href="https://esprima.org/demo/parse.html" target="_blank" rel="noopener">https://esprima.org/demo/parse.html</a> 來解析轉換得過程。</p>
+<h3 id="語法單元化"><a href="#語法單元化" class="headerlink" title="語法單元化"></a>語法單元化</h3><p>從下圖我們可以看到，我們所寫語法的每個單詞都會被單元化並解析為各種 type，例如 var  他並不會知道他有宣告變數的功能，而是辨識它為關鍵字，= 也不會知道它有賦予值的功能，而辨識它是一個標點符號。<br><img src="https://i.imgur.com/HpWBe9D.png" alt="語法單元化"></p>
+<h3 id="抽象結構樹"><a href="#抽象結構樹" class="headerlink" title="抽象結構樹"></a>抽象結構樹</h3><p>抽象結構樹會針對我們原本所要做的行為（這邊我們主要行為是宣告一個變數）來帶入不同的方法，在圖的下方有個 kind ，可以知道我們用來定義變數的方法是 var，若我們改成 ES6 中的 let 來宣告變數，則 kind 會變成 let。<br><img src="https://i.imgur.com/TqmBcEG.png" alt="抽象結構樹-宣告變數"><br><img src="https://i.imgur.com/2fhZJXG.png" alt="抽象結構樹-宣告變數"><br>另外，我們知道當沒使用 var 宣告變數，而是直接對變數賦予值時會變成全域變數，從抽象結構樹也可以看到兩種方式的差別，一種是使用 VariableDeclarator 變數宣告的方法，直接賦予值是使用 AssignmentExpression 指派的方法。<br><img src="https://i.imgur.com/yeOXKdA.png" alt="抽象結構樹-宣告變數"></p>
+
       
     </div>
-    
-
-
 
     
+
+    
+      
+    
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/15/2019-8-16-JavaScript取得當前時間/" rel="next" title="JavaScript - 取得當前時間的方法">
+                <i class="fa fa-chevron-left"></i> JavaScript - 取得當前時間的方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -423,8 +572,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -517,6 +675,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯式語言-Compiled-language"><span class="nav-number">1.</span> <span class="nav-text">編譯式語言(Compiled language)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直譯式語言-Interpreted-language"><span class="nav-number">2.</span> <span class="nav-text">直譯式語言(Interpreted language)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-直譯器的轉換過程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 直譯器的轉換過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法單元化"><span class="nav-number">3.1.</span> <span class="nav-text">語法單元化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象結構樹"><span class="nav-number">3.2.</span> <span class="nav-text">抽象結構樹</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -668,6 +843,8 @@
 
 
 
+
+  
 
 
 
