@@ -94,20 +94,21 @@
   };
 </script>
 
-  <meta name="description" content="到底什麼是 API ?API（Application Programming Interface）中文翻譯為應用程式介面，霧煞煞啊！什麼鬼。若從中文翻譯介面兩字我們大概可以推測，這東西大概是會顯示一些資訊或是有一些功能可以給我們操作，就像拿著手機操作螢幕一樣。而這個介面其實是給予我們串接用的，那為何要串接呢？以下舉個例子。在現今生活上我們常常使用一個東西來傳遞電腦資料叫做隨身碟（很多人會稱它為 U">
+  <meta name="description" content="執行環境我們在撰寫 function 原始碼時，就已經定義好它的作用域了，不過要等到我們去執行它時，它才會建立一個執行環境，而有這個執行環境時 function 作用域才有屬於它的變數。執行環境會在每次調用函式時建立，而這個執行環境會有限制作用域及產生 this 的特性。那麼最外層呢？最外層當然就是我們的全域執行環境，這個全域執行環境會在我們一開始使用瀏覽器 or Node.js 開啟時即建立(t">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="API（Application Programming Interface）-應用程式介面">
-<meta property="og:url" content="https://kuncks.github.io/2019/10/16/2019-10-16-API-Application-Programming-Interface/index.html">
+<meta property="og:title" content="2019-10-17-執行環境與執行堆疊">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/17/2019-10-17-執行環境與執行堆疊/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
-<meta property="og:description" content="到底什麼是 API ?API（Application Programming Interface）中文翻譯為應用程式介面，霧煞煞啊！什麼鬼。若從中文翻譯介面兩字我們大概可以推測，這東西大概是會顯示一些資訊或是有一些功能可以給我們操作，就像拿著手機操作螢幕一樣。而這個介面其實是給予我們串接用的，那為何要串接呢？以下舉個例子。在現今生活上我們常常使用一個東西來傳遞電腦資料叫做隨身碟（很多人會稱它為 U">
+<meta property="og:description" content="執行環境我們在撰寫 function 原始碼時，就已經定義好它的作用域了，不過要等到我們去執行它時，它才會建立一個執行環境，而有這個執行環境時 function 作用域才有屬於它的變數。執行環境會在每次調用函式時建立，而這個執行環境會有限制作用域及產生 this 的特性。那麼最外層呢？最外層當然就是我們的全域執行環境，這個全域執行環境會在我們一開始使用瀏覽器 or Node.js 開啟時即建立(t">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="https://images.unsplash.com/photo-1521931961826-fe48677230a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80">
-<meta property="og:updated_time" content="2019-10-16T11:02:10.071Z">
+<meta property="og:image" content="https://i.imgur.com/63i5BAi.gif">
+<meta property="og:image" content="https://i.imgur.com/OSzgoMJ.gif">
+<meta property="og:updated_time" content="2019-10-17T09:54:20.077Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="API（Application Programming Interface）-應用程式介面">
-<meta name="twitter:description" content="到底什麼是 API ?API（Application Programming Interface）中文翻譯為應用程式介面，霧煞煞啊！什麼鬼。若從中文翻譯介面兩字我們大概可以推測，這東西大概是會顯示一些資訊或是有一些功能可以給我們操作，就像拿著手機操作螢幕一樣。而這個介面其實是給予我們串接用的，那為何要串接呢？以下舉個例子。在現今生活上我們常常使用一個東西來傳遞電腦資料叫做隨身碟（很多人會稱它為 U">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1521931961826-fe48677230a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80">
+<meta name="twitter:title" content="2019-10-17-執行環境與執行堆疊">
+<meta name="twitter:description" content="執行環境我們在撰寫 function 原始碼時，就已經定義好它的作用域了，不過要等到我們去執行它時，它才會建立一個執行環境，而有這個執行環境時 function 作用域才有屬於它的變數。執行環境會在每次調用函式時建立，而這個執行環境會有限制作用域及產生 this 的特性。那麼最外層呢？最外層當然就是我們的全域執行環境，這個全域執行環境會在我們一開始使用瀏覽器 or Node.js 開啟時即建立(t">
+<meta name="twitter:image" content="https://i.imgur.com/63i5BAi.gif">
 
 
 
@@ -115,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/2019/10/16/2019-10-16-API-Application-Programming-Interface/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/17/2019-10-17-執行環境與執行堆疊/">
 
 
 
@@ -126,7 +127,7 @@
 </script>
 
   
-  <title>API（Application Programming Interface）-應用程式介面 | ASin's Web Learning</title>
+  <title>2019-10-17-執行環境與執行堆疊 | ASin's Web Learning</title>
   
 
 
@@ -346,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/16/2019-10-16-API-Application-Programming-Interface/">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/17/2019-10-17-執行環境與執行堆疊/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ASin">
@@ -363,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">API（Application Programming Interface）-應用程式介面
+          <h1 class="post-title" itemprop="name headline">2019-10-17-執行環境與執行堆疊
 
               
             
@@ -389,7 +390,7 @@
                 
               
 
-              <time title="創建時間：2019-10-16 17:12:59 / 修改時間：19:02:10" itemprop="dateCreated datePublished" datetime="2019-10-16T17:12:59+08:00">2019-10-16</time>
+              <time title="創建時間：2019-10-17 17:15:48 / 修改時間：17:54:20" itemprop="dateCreated datePublished" datetime="2019-10-17T17:15:48+08:00">2019-10-17</time>
             </span>
           
 
@@ -448,11 +449,14 @@
       
 
       
-        <h2 id="到底什麼是-API"><a href="#到底什麼是-API" class="headerlink" title="到底什麼是 API ?"></a>到底什麼是 API ?</h2><p>API（Application Programming Interface）中文翻譯為應用程式介面，霧煞煞啊！什麼鬼。若從中文翻譯介面兩字我們大概可以推測，這東西大概是會顯示一些資訊或是有一些功能可以給我們操作，就像拿著手機操作螢幕一樣。<br><img src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" width="50%" height="50%" style="margin: 0 auto;"><br>而這個介面其實是給予我們串接用的，那為何要串接呢？以下舉個例子。<br>在現今生活上我們常常使用一個東西來傳遞電腦資料叫做隨身碟（很多人會稱它為 USB，哈哈），幾乎所有的電腦都會有這個統一規格的 USB 插槽來讓你使用隨身碟存取或傳遞資料，API 也是這樣的概念，提供一個統一的介面，讓程式與程式之間做串接，我們就可以存取或傳遞資料。再舉一個例子。<br>前陣子夾娃娃機非常的夯，同樣的機台與操作介面，裡面裝著許多不一樣的獎品，當我們透過搖桿利用正確的方式（有技巧方法？）去操作時，就可以順利取得我們想要的獎品。<br>所以，在一些大型網站會提供一些功能性的 API 給我們做使用，例如：</p>
-<ul>
-<li>Facebook: <a href="https://developers.facebook.com/products#社交網站整合" target="_blank" rel="noopener">串接 API 將你想發布的內容作為限時動態分享</a></li>
-<li>Google: <a href="https://console.developers.google.com/" target="_blank" rel="noopener">Googel 提供讓其他 APP 以 google 登入做驗證的 API</a></li>
-</ul>
+        <h2 id="執行環境"><a href="#執行環境" class="headerlink" title="執行環境"></a>執行環境</h2><p>我們在撰寫 function 原始碼時，就已經定義好它的作用域了，不過要等到我們去執行它時，它才會建立一個執行環境，而有這個執行環境時 function 作用域才有屬於它的變數。執行環境會在每次調用函式時建立，而這個執行環境會有限制作用域及產生 this 的特性。那麼最外層呢？最外層當然就是我們的全域執行環境，這個全域執行環境會在我們一開始使用瀏覽器 or Node.js 開啟時即建立(this 會指向 window or global)。</p>
+<h2 id="執行堆疊（Execution-stack）"><a href="#執行堆疊（Execution-stack）" class="headerlink" title="執行堆疊（Execution stack）"></a>執行堆疊（Execution stack）</h2><p>這邊我們可以參照下面原始碼範例，當我們開啟瀏覽器進入畫面時，會先建立一個全域執行環境，然後我們執行 <code>doSomething()</code> ，此時會建立一個 <code>doSomething()</code> 的執行環境堆疊在全域上，接下來再調用 <code>sayHi()</code> 時， <code>sayHi()</code> 再建立一個執行環境堆的上去，形成執行環境的堆疊，最後當執行 <code>sayHi()</code> 執行完畢時則撤掉其執行環境，再接著撤掉 <code>doSomething()</code> 的執行環境，也結束我們的程式碼執行。</p>
+<center class="half">
+<img src="https://i.imgur.com/63i5BAi.gif" width="40%" height="40%" style="margin: 0 auto;">
+<img src="https://i.imgur.com/OSzgoMJ.gif" width="40%" height="40%" style="margin: 0 auto;">
+</center>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> greeting = <span class="string">'hi'</span>;</span><br><span class="line">  <span class="keyword">return</span> greeting + <span class="string">' '</span> + name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">'ASin'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(sayHi(person));</span><br><span class="line">&#125;</span><br><span class="line">doSomething();</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -496,8 +500,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/16/2019-10-16-JavaScript核心概念-LHS、RHS是什麼？/" rel="next" title="JavaScript核心概念-LHS、RHS是什麼？">
-                <i class="fa fa-chevron-left"></i> JavaScript核心概念-LHS、RHS是什麼？
+              <a href="/2019/10/17/2019-10-17-語法作用域-LexicalScope/" rel="next" title="JavaScript核心概念-語法作用域（Lexical Scope）">
+                <i class="fa fa-chevron-left"></i> JavaScript核心概念-語法作用域（Lexical Scope）
               </a>
             
           </div>
@@ -505,10 +509,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/17/2019-10-17-語法作用域-LexicalScope/" rel="prev" title="JavaScript核心概念-語法作用域（Lexical Scope）">
-                JavaScript核心概念-語法作用域（Lexical Scope） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#到底什麼是-API"><span class="nav-number">1.</span> <span class="nav-text">到底什麼是 API ?</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行環境"><span class="nav-number">1.</span> <span class="nav-text">執行環境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行堆疊（Execution-stack）"><span class="nav-number">2.</span> <span class="nav-text">執行堆疊（Execution stack）</span></a></li></ol></div>
             
 
           </div>
