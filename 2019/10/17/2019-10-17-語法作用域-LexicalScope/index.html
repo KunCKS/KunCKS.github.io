@@ -94,26 +94,21 @@
   };
 </script>
 
-  <meta name="description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
+  <meta name="description" content="變數宣告與作用域首先，我們要知道 JavaScript 的變數有它作用域的範圍，未使用 var 所宣告的變數都會自動變成全域變數，而切分變數有效範圍的最小單位是 “function” （ES6 之後有 let 與 const 分別定義「變數」與「常數」。 與 var 不同的是，它們的 scope 是透過大括號 { } 來切分的。）這邊我們舉一個例子，當我們將 console.log(ASin) 放">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript核心概念-JavaScript是如何運行？">
-<meta property="og:url" content="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/index.html">
+<meta property="og:title" content="JavaScript核心概念-語法作用域（Lexical Scope）">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/17/2019-10-17-語法作用域-LexicalScope/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
-<meta property="og:description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
+<meta property="og:description" content="變數宣告與作用域首先，我們要知道 JavaScript 的變數有它作用域的範圍，未使用 var 所宣告的變數都會自動變成全域變數，而切分變數有效範圍的最小單位是 “function” （ES6 之後有 let 與 const 分別定義「變數」與「常數」。 與 var 不同的是，它們的 scope 是透過大括號 { } 來切分的。）這邊我們舉一個例子，當我們將 console.log(ASin) 放">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="https://i.imgur.com/piO5rg7.png">
-<meta property="og:image" content="https://i.imgur.com/0ffPBoS.png">
-<meta property="og:image" content="https://i.imgur.com/l9LoxoY.png">
-<meta property="og:image" content="https://i.imgur.com/HpWBe9D.png">
-<meta property="og:image" content="https://i.imgur.com/TqmBcEG.png">
-<meta property="og:image" content="https://i.imgur.com/2fhZJXG.png">
-<meta property="og:image" content="https://i.imgur.com/yeOXKdA.png">
-<meta property="og:updated_time" content="2019-10-16T11:02:04.585Z">
+<meta property="og:image" content="https://i.imgur.com/IWF65C5.png">
+<meta property="og:image" content="https://i.imgur.com/YMOSrwU.png">
+<meta property="og:updated_time" content="2019-10-17T07:31:50.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript核心概念-JavaScript是如何運行？">
-<meta name="twitter:description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
-<meta name="twitter:image" content="https://i.imgur.com/piO5rg7.png">
+<meta name="twitter:title" content="JavaScript核心概念-語法作用域（Lexical Scope）">
+<meta name="twitter:description" content="變數宣告與作用域首先，我們要知道 JavaScript 的變數有它作用域的範圍，未使用 var 所宣告的變數都會自動變成全域變數，而切分變數有效範圍的最小單位是 “function” （ES6 之後有 let 與 const 分別定義「變數」與「常數」。 與 var 不同的是，它們的 scope 是透過大括號 { } 來切分的。）這邊我們舉一個例子，當我們將 console.log(ASin) 放">
+<meta name="twitter:image" content="https://i.imgur.com/IWF65C5.png">
 
 
 
@@ -121,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/17/2019-10-17-語法作用域-LexicalScope/">
 
 
 
@@ -132,7 +127,7 @@
 </script>
 
   
-  <title>JavaScript核心概念-JavaScript是如何運行？ | ASin's Web Learning</title>
+  <title>JavaScript核心概念-語法作用域（Lexical Scope） | ASin's Web Learning</title>
   
 
 
@@ -352,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/17/2019-10-17-語法作用域-LexicalScope/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ASin">
@@ -369,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-JavaScript是如何運行？
+          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-語法作用域（Lexical Scope）
 
               
             
@@ -395,7 +390,7 @@
                 
               
 
-              <time title="創建時間：2019-10-16 09:32:05 / 修改時間：19:02:04" itemprop="dateCreated datePublished" datetime="2019-10-16T09:32:05+08:00">2019-10-16</time>
+              <time title="創建時間：2019-10-17 13:08:39 / 修改時間：15:31:50" itemprop="dateCreated datePublished" datetime="2019-10-17T13:08:39+08:00">2019-10-17</time>
             </span>
           
 
@@ -454,29 +449,18 @@
       
 
       
-        <p> 在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言：</p>
-<h2 id="編譯式語言-Compiled-language"><a href="#編譯式語言-Compiled-language" class="headerlink" title="編譯式語言(Compiled language)"></a>編譯式語言(Compiled language)</h2><p>在我們寫好原始碼時，會先透過編譯器(compiler)<strong>預先編譯完成</strong>並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：</p>
-<ul>
-<li>編譯時即可除錯。</li>
-<li>預先定義的型別。</li>
-<li>型別檢查 (type check)。</li>
-<li>擁有高效能的執行速度等特性。</li>
-<li>可獨立執行。</li>
-</ul>
-<p><img src="https://i.imgur.com/piO5rg7.png" alt="編譯式語言"></p>
-<h2 id="直譯式語言-Interpreted-language"><a href="#直譯式語言-Interpreted-language" class="headerlink" title="直譯式語言(Interpreted language)"></a>直譯式語言(Interpreted language)</h2><p>不同於編譯式語言，直譯式語言在執行時會一行一行的動態將程式碼直譯為代碼，並執行，因此會有下列的特色：</p>
-<ul>
-<li>錯誤直接反映在環境上。</li>
-<li>不用預先定義的型別。</li>
-<li>動態生成。</li>
-<li>程式彈性。</li>
-<li>速度會比編譯式語言要慢一些。</li>
-<li>無法獨立運行，可用的功能由執行環境所提供。</li>
-</ul>
-<p><img src="https://i.imgur.com/0ffPBoS.png" alt="直譯式語言"></p>
-<h2 id="JavaScript-直譯器的轉換過程"><a href="#JavaScript-直譯器的轉換過程" class="headerlink" title="JavaScript 直譯器的轉換過程"></a>JavaScript 直譯器的轉換過程</h2><p>在直譯器的轉換過程中，首先會將語法單元化（Tokenizing），然後透過抽象結構樹（Abstract Syntax Tree ）將原始碼的結構定義出來，最後生成代碼運行。<br><img src="https://i.imgur.com/l9LoxoY.png" alt="JavaScript直譯器轉換過程"><br>接下來我們利用 <a href="https://esprima.org/demo/parse.html" target="_blank" rel="noopener">https://esprima.org/demo/parse.html</a> 來解析轉換得過程。</p>
-<h3 id="語法單元化"><a href="#語法單元化" class="headerlink" title="語法單元化"></a>語法單元化</h3><p>從下圖我們可以看到，我們所寫語法的每個單詞都會被單元化並解析為各種 type，例如 var  他並不會知道他有宣告變數的功能，而是辨識它為關鍵字，= 也不會知道它有賦予值的功能，而辨識它是一個標點符號。<br><img src="https://i.imgur.com/HpWBe9D.png" alt="語法單元化"></p>
-<h3 id="抽象結構樹"><a href="#抽象結構樹" class="headerlink" title="抽象結構樹"></a>抽象結構樹</h3><p>抽象結構樹會針對我們原本所要做的行為（這邊我們主要行為是宣告一個變數）來帶入不同的方法，在圖的下方有個 kind ，可以知道我們用來定義變數的方法是 var，若我們改成 ES6 中的 let 來宣告變數，則 kind 會變成 let。<br><img src="https://i.imgur.com/TqmBcEG.png" alt="抽象結構樹-宣告變數"><br><img src="https://i.imgur.com/2fhZJXG.png" alt="抽象結構樹-宣告變數"><br>另外，我們知道當沒使用 var 宣告變數，而是直接對變數賦予值時會變成全域變數，從抽象結構樹也可以看到兩種方式的差別，一種是使用 VariableDeclarator 變數宣告的方法，直接賦予值是使用 AssignmentExpression 指派的方法。<br><img src="https://i.imgur.com/yeOXKdA.png" alt="抽象結構樹-宣告變數"></p>
+        <h2 id="變數宣告與作用域"><a href="#變數宣告與作用域" class="headerlink" title="變數宣告與作用域"></a>變數宣告與作用域</h2><p>首先，我們要知道 JavaScript 的變數有它作用域的範圍，<strong>未使用 var 所宣告的變數都會自動變成全域變數</strong>，而<strong>切分變數有效範圍的最小單位是 “function”</strong> （ES6 之後有 let 與 const 分別定義「變數」與「常數」。 與 var 不同的是，它們的 scope 是透過大括號 { } 來切分的。）這邊我們舉一個例子，當我們將 <code>console.log(ASin)</code> 放在函式內執行函式時，其結果可以成功印出 ‘名字’，但若我們將其放在函式外時，其結果會顯示 ASin 這個變數並沒有被定義，這就是因為作用域的關係。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ASin = <span class="string">'名字'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(ASin);</span><br><span class="line">&#125;</span><br><span class="line">callName(); <span class="comment">// 名字</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ASin = <span class="string">'名字'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ASin); <span class="comment">// Uncaught ReferenceError: ASin is not defined at &lt;anonymous&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="靜態作用域與動態作用域的差別"><a href="#靜態作用域與動態作用域的差別" class="headerlink" title="靜態作用域與動態作用域的差別"></a>靜態作用域與動態作用域的差別</h2><p>JavaScript 是採用靜態作用域(語法作用域)，靜態作用域是原始碼在透過直譯器解析語法時，就確定了它的作用域，例如我們上面範例中 <code>console.log(ASin)</code> 在寫 function 時就已經定義好他的作用域。而動態作用域則是在函式調用的時候才決定它的作用域。</p>
+<p><img src="https://i.imgur.com/IWF65C5.png" alt="靜態作用域與動態作用域"></p>
+<h2 id="JavaScript-作用域的查找"><a href="#JavaScript-作用域的查找" class="headerlink" title="JavaScript 作用域的查找"></a>JavaScript 作用域的查找</h2><p>在我們所寫的原始碼中最外層會有一個全域的作用域，然後是各個 function 所形成的作用域，各 function 間的作用域是獨立的。但是，當某個 function 內需要取用一個變數，而這個 function 內沒有這個變數時，就會向外查找，若有則取用，若沒有則會回報錯誤。<br><img src="https://i.imgur.com/YMOSrwU.png" alt="作用域"></p>
+<h2 id="靜態作用域與動態作用域執行的結果"><a href="#靜態作用域與動態作用域執行的結果" class="headerlink" title="靜態作用域與動態作用域執行的結果"></a>靜態作用域與動態作用域執行的結果</h2><p>所以當我們在寫好這些語法時，它的作用域就已經確定了，不會因為我們在執行時做改變。以下範例我們可以看到，<code>ASin</code> 的作用域在最外層，<code>HYH</code> 作用域只在 <code>CallName2()</code> 這個函式內，當我們執行 <code>CallName2()</code> 時，<code>CallName1()</code> 也會被調用並執行 <code>console.log(name)</code>，其結果會是 <code>ASin</code> 而不是 <code>HYH</code>，這邊我們要記得<strong>我們在寫好語法時，它的作用域就已經確定了</strong>，所以 <code>callName1()</code> 內沒有 <code>name</code> 這個變數因而往外層查找，得到 ASin 這個結果。</p>
+<p>那麼如果是動態作用域其情況就會不同，在調用<code>CallName2()</code>時，它會在函式宣告時才決定他的作用域，所以 <code>callName1()</code> 宣告時在 <code>CallName2()</code> 內，<code>CallName1()</code> 沒有 <code>name</code> 這個變數，所以往外層 <code>CallName2()</code> 查找，最後找到 <code>HYH</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'ASin'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CallName2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'HYH'</span>; <span class="comment">//若為動態作用域時，callName1()取得 HYH</span></span><br><span class="line">  callName1();</span><br><span class="line">&#125;</span><br><span class="line">CallName2(); <span class="comment">// ASin</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -520,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/16/2019-8-16-about-assess-object's properties/" rel="next" title="JavaScript - 關於物件存取屬性的方法">
-                <i class="fa fa-chevron-left"></i> JavaScript - 關於物件存取屬性的方法
+              <a href="/2019/10/16/2019-10-16-API-Application-Programming-Interface/" rel="next" title="API（Application Programming Interface）-應用程式介面">
+                <i class="fa fa-chevron-left"></i> API（Application Programming Interface）-應用程式介面
               </a>
             
           </div>
@@ -529,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/16/2019-10-16-JavaScript核心概念-LHS、RHS是什麼？/" rel="prev" title="JavaScript核心概念-LHS、RHS是什麼？">
-                JavaScript核心概念-LHS、RHS是什麼？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯式語言-Compiled-language"><span class="nav-number">1.</span> <span class="nav-text">編譯式語言(Compiled language)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直譯式語言-Interpreted-language"><span class="nav-number">2.</span> <span class="nav-text">直譯式語言(Interpreted language)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-直譯器的轉換過程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 直譯器的轉換過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法單元化"><span class="nav-number">3.1.</span> <span class="nav-text">語法單元化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象結構樹"><span class="nav-number">3.2.</span> <span class="nav-text">抽象結構樹</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#變數宣告與作用域"><span class="nav-number">1.</span> <span class="nav-text">變數宣告與作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#靜態作用域與動態作用域的差別"><span class="nav-number">2.</span> <span class="nav-text">靜態作用域與動態作用域的差別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-作用域的查找"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 作用域的查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#靜態作用域與動態作用域執行的結果"><span class="nav-number">4.</span> <span class="nav-text">靜態作用域與動態作用域執行的結果</span></a></li></ol></div>
             
 
           </div>

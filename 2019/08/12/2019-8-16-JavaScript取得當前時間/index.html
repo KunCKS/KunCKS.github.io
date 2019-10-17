@@ -94,26 +94,21 @@
   };
 </script>
 
-  <meta name="description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
+  <meta name="description" content="建立 Date() 物件在 JavaScript 中取得時間資訊需使用 Date() 物件來指向某一個時間點，透過物件內建的函式來取得相關資訊。取得時間的資訊有兩種方式，第一種是透過 Date.now() 來取得時間戳記（tiemstamp,毫秒），第二種是透過建構式建立 Date()物件，物件會回傳目前時間資訊的日期物件，然後就可以利用內建的函式來取得資訊。以下為取得各資訊的函式： 123456">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript核心概念-JavaScript是如何運行？">
-<meta property="og:url" content="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/index.html">
+<meta property="og:title" content="JavaScript - 取得當前時間的方法">
+<meta property="og:url" content="https://kuncks.github.io/2019/08/12/2019-8-16-JavaScript取得當前時間/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
-<meta property="og:description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
+<meta property="og:description" content="建立 Date() 物件在 JavaScript 中取得時間資訊需使用 Date() 物件來指向某一個時間點，透過物件內建的函式來取得相關資訊。取得時間的資訊有兩種方式，第一種是透過 Date.now() 來取得時間戳記（tiemstamp,毫秒），第二種是透過建構式建立 Date()物件，物件會回傳目前時間資訊的日期物件，然後就可以利用內建的函式來取得資訊。以下為取得各資訊的函式： 123456">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="https://i.imgur.com/piO5rg7.png">
-<meta property="og:image" content="https://i.imgur.com/0ffPBoS.png">
-<meta property="og:image" content="https://i.imgur.com/l9LoxoY.png">
-<meta property="og:image" content="https://i.imgur.com/HpWBe9D.png">
-<meta property="og:image" content="https://i.imgur.com/TqmBcEG.png">
-<meta property="og:image" content="https://i.imgur.com/2fhZJXG.png">
-<meta property="og:image" content="https://i.imgur.com/yeOXKdA.png">
-<meta property="og:updated_time" content="2019-10-16T11:02:04.585Z">
+<meta property="og:image" content="https://i.imgur.com/YO7rq2o.png">
+<meta property="og:image" content="https://i.imgur.com/OYvtxoD.png">
+<meta property="og:updated_time" content="2019-10-17T01:11:55.796Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript核心概念-JavaScript是如何運行？">
-<meta name="twitter:description" content="在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言： 編譯式語言(Compiled language)在我們寫好原始碼時，會先透過編譯器(compiler)預先編譯完成並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：  編譯時即可除錯">
-<meta name="twitter:image" content="https://i.imgur.com/piO5rg7.png">
+<meta name="twitter:title" content="JavaScript - 取得當前時間的方法">
+<meta name="twitter:description" content="建立 Date() 物件在 JavaScript 中取得時間資訊需使用 Date() 物件來指向某一個時間點，透過物件內建的函式來取得相關資訊。取得時間的資訊有兩種方式，第一種是透過 Date.now() 來取得時間戳記（tiemstamp,毫秒），第二種是透過建構式建立 Date()物件，物件會回傳目前時間資訊的日期物件，然後就可以利用內建的函式來取得資訊。以下為取得各資訊的函式： 123456">
+<meta name="twitter:image" content="https://i.imgur.com/YO7rq2o.png">
 
 
 
@@ -121,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/08/12/2019-8-16-JavaScript取得當前時間/">
 
 
 
@@ -132,7 +127,7 @@
 </script>
 
   
-  <title>JavaScript核心概念-JavaScript是如何運行？ | ASin's Web Learning</title>
+  <title>JavaScript - 取得當前時間的方法 | ASin's Web Learning</title>
   
 
 
@@ -352,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/08/12/2019-8-16-JavaScript取得當前時間/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ASin">
@@ -369,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-JavaScript是如何運行？
+          <h1 class="post-title" itemprop="name headline">JavaScript - 取得當前時間的方法
 
               
             
@@ -395,13 +390,23 @@
                 
               
 
-              <time title="創建時間：2019-10-16 09:32:05 / 修改時間：19:02:04" itemprop="dateCreated datePublished" datetime="2019-10-16T09:32:05+08:00">2019-10-16</time>
+              <time title="創建時間：2019-08-12 23:27:43" itemprop="dateCreated datePublished" datetime="2019-08-12T23:27:43+08:00">2019-08-12</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-10-17 09:11:55" itemprop="dateModified" datetime="2019-10-17T09:11:55+08:00">2019-10-17</time>
+              </span>
             
           
 
@@ -454,29 +459,17 @@
       
 
       
-        <p> 在瞭解JavaScript是如何運行前，我們要先瞭解在 script 中所寫的原始碼電腦是無法直接解讀的，這些語法都要轉換成電腦看得懂的代碼才有辦法運行，而語法的轉換則分成兩種，編譯式語言與直譯式語言：</p>
-<h2 id="編譯式語言-Compiled-language"><a href="#編譯式語言-Compiled-language" class="headerlink" title="編譯式語言(Compiled language)"></a>編譯式語言(Compiled language)</h2><p>在我們寫好原始碼時，會先透過編譯器(compiler)<strong>預先編譯完成</strong>並生成代碼，電腦才會解讀並執行，這樣的語言有下列幾項特色：</p>
-<ul>
-<li>編譯時即可除錯。</li>
-<li>預先定義的型別。</li>
-<li>型別檢查 (type check)。</li>
-<li>擁有高效能的執行速度等特性。</li>
-<li>可獨立執行。</li>
-</ul>
-<p><img src="https://i.imgur.com/piO5rg7.png" alt="編譯式語言"></p>
-<h2 id="直譯式語言-Interpreted-language"><a href="#直譯式語言-Interpreted-language" class="headerlink" title="直譯式語言(Interpreted language)"></a>直譯式語言(Interpreted language)</h2><p>不同於編譯式語言，直譯式語言在執行時會一行一行的動態將程式碼直譯為代碼，並執行，因此會有下列的特色：</p>
-<ul>
-<li>錯誤直接反映在環境上。</li>
-<li>不用預先定義的型別。</li>
-<li>動態生成。</li>
-<li>程式彈性。</li>
-<li>速度會比編譯式語言要慢一些。</li>
-<li>無法獨立運行，可用的功能由執行環境所提供。</li>
-</ul>
-<p><img src="https://i.imgur.com/0ffPBoS.png" alt="直譯式語言"></p>
-<h2 id="JavaScript-直譯器的轉換過程"><a href="#JavaScript-直譯器的轉換過程" class="headerlink" title="JavaScript 直譯器的轉換過程"></a>JavaScript 直譯器的轉換過程</h2><p>在直譯器的轉換過程中，首先會將語法單元化（Tokenizing），然後透過抽象結構樹（Abstract Syntax Tree ）將原始碼的結構定義出來，最後生成代碼運行。<br><img src="https://i.imgur.com/l9LoxoY.png" alt="JavaScript直譯器轉換過程"><br>接下來我們利用 <a href="https://esprima.org/demo/parse.html" target="_blank" rel="noopener">https://esprima.org/demo/parse.html</a> 來解析轉換得過程。</p>
-<h3 id="語法單元化"><a href="#語法單元化" class="headerlink" title="語法單元化"></a>語法單元化</h3><p>從下圖我們可以看到，我們所寫語法的每個單詞都會被單元化並解析為各種 type，例如 var  他並不會知道他有宣告變數的功能，而是辨識它為關鍵字，= 也不會知道它有賦予值的功能，而辨識它是一個標點符號。<br><img src="https://i.imgur.com/HpWBe9D.png" alt="語法單元化"></p>
-<h3 id="抽象結構樹"><a href="#抽象結構樹" class="headerlink" title="抽象結構樹"></a>抽象結構樹</h3><p>抽象結構樹會針對我們原本所要做的行為（這邊我們主要行為是宣告一個變數）來帶入不同的方法，在圖的下方有個 kind ，可以知道我們用來定義變數的方法是 var，若我們改成 ES6 中的 let 來宣告變數，則 kind 會變成 let。<br><img src="https://i.imgur.com/TqmBcEG.png" alt="抽象結構樹-宣告變數"><br><img src="https://i.imgur.com/2fhZJXG.png" alt="抽象結構樹-宣告變數"><br>另外，我們知道當沒使用 var 宣告變數，而是直接對變數賦予值時會變成全域變數，從抽象結構樹也可以看到兩種方式的差別，一種是使用 VariableDeclarator 變數宣告的方法，直接賦予值是使用 AssignmentExpression 指派的方法。<br><img src="https://i.imgur.com/yeOXKdA.png" alt="抽象結構樹-宣告變數"></p>
+        <h2 id="建立-Date-物件"><a href="#建立-Date-物件" class="headerlink" title="建立 Date() 物件"></a>建立 Date() 物件</h2><p>在 JavaScript 中取得時間資訊需使用 Date() 物件來指向某一個時間點，透過物件內建的函式來取得相關資訊。<br>取得時間的資訊有兩種方式，第一種是透過 Date.now() 來取得時間戳記（tiemstamp,毫秒），第二種是透過建構式建立 Date()物件，物件會回傳目前時間資訊的日期物件，然後就可以利用內建的函式來取得資訊。<br>以下為取得各資訊的函式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.now()                            <span class="comment">//  回傳當前的時間戳記timestamp（毫秒）</span></span><br><span class="line"><span class="keyword">let</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>()                <span class="comment">//  回傳目前時間的日期物件，利用today變數來儲存資訊</span></span><br><span class="line">today.getTime()                       <span class="comment">//  輸入時間物件，回傳特定時間的 timestamp（毫秒）</span></span><br><span class="line">today.getFullYear()</span><br><span class="line">today.getMonth()                      <span class="comment">//  回傳數值，取得月份，月份 0 表示 1 月！</span></span><br><span class="line">today.getDate()                       <span class="comment">//  回傳數值，取得幾號</span></span><br><span class="line">today.getDay()                        <span class="comment">//  回傳數值，取得星期幾</span></span><br><span class="line">today.getSeconds()                    <span class="comment">//  回傳數值，取得秒資訊</span></span><br><span class="line">today.getMinutes()                    <span class="comment">//  回傳數值，取得分資訊</span></span><br><span class="line">today.getHours()                      <span class="comment">//  回傳數值，取得小時資訊</span></span><br></pre></td></tr></table></figure>
+
+<p>範例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>()                <span class="comment">//  回傳目前時間的日期物件</span></span><br><span class="line"><span class="keyword">let</span> yyyy = today.getFullYear()</span><br><span class="line"><span class="comment">//這邊利用三元運算來補0</span></span><br><span class="line"><span class="keyword">let</span> mm = (today.getMonth() + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + (today.getMonth() + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> dd = (today.getDate() &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + today.getDate()</span><br><span class="line"><span class="built_in">console</span>.log(yyyy + <span class="string">'-'</span> + mm + <span class="string">'-'</span> + dd)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/YO7rq2o.png" alt="範例結果"><br>這邊要注意的是，在取得月份的時候，函式所回傳的資料是從 0 開始，也就是月份會回傳0 ~ 11，代表 1 ~ 12 月，所以我們要自己補 1 才是正確的月份。<br>另外，也可以透過三元運算來為個位數的月份及日來補 0 。</p>
+<p>最後，如果我們有一筆 tiemstamp 的資料要轉換成我們看得懂的格式，該如何做呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> tiemstamp = <span class="number">1237648595747</span></span><br><span class="line"><span class="keyword">let</span> day = <span class="keyword">new</span> <span class="built_in">Date</span>(tiemstamp)                </span><br><span class="line"><span class="keyword">let</span> yyyy = day.getFullYear()</span><br><span class="line"><span class="keyword">let</span> mm = (day.getMonth() + <span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + (day.getMonth() + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">let</span> dd = (day.getDate() &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + day.getDate()</span><br><span class="line"><span class="built_in">console</span>.log(yyyy + <span class="string">'-'</span> + mm + <span class="string">'-'</span> + dd)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/OYvtxoD.png" alt="範例結果"></p>
 
       
     </div>
@@ -520,18 +513,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/16/2019-8-16-about-assess-object's properties/" rel="next" title="JavaScript - 關於物件存取屬性的方法">
-                <i class="fa fa-chevron-left"></i> JavaScript - 關於物件存取屬性的方法
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/16/2019-10-16-JavaScript核心概念-LHS、RHS是什麼？/" rel="prev" title="JavaScript核心概念-LHS、RHS是什麼？">
-                JavaScript核心概念-LHS、RHS是什麼？ <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/16/2019-8-16-about-assess-object's properties/" rel="prev" title="JavaScript - 關於物件存取屬性的方法">
+                JavaScript - 關於物件存取屬性的方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -690,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯式語言-Compiled-language"><span class="nav-number">1.</span> <span class="nav-text">編譯式語言(Compiled language)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直譯式語言-Interpreted-language"><span class="nav-number">2.</span> <span class="nav-text">直譯式語言(Interpreted language)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-直譯器的轉換過程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 直譯器的轉換過程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#語法單元化"><span class="nav-number">3.1.</span> <span class="nav-text">語法單元化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象結構樹"><span class="nav-number">3.2.</span> <span class="nav-text">抽象結構樹</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#建立-Date-物件"><span class="nav-number">1.</span> <span class="nav-text">建立 Date() 物件</span></a></li></ol></div>
             
 
           </div>
