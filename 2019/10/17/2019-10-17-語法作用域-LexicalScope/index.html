@@ -104,7 +104,7 @@
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https://i.imgur.com/IWF65C5.png">
 <meta property="og:image" content="https://i.imgur.com/YMOSrwU.png">
-<meta property="og:updated_time" content="2019-10-17T07:31:50.042Z">
+<meta property="og:updated_time" content="2019-10-18T03:37:16.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript核心概念-語法作用域（Lexical Scope）">
 <meta name="twitter:description" content="變數宣告與作用域首先，我們要知道 JavaScript 的變數有它作用域的範圍，未使用 var 所宣告的變數都會自動變成全域變數，而切分變數有效範圍的最小單位是 “function” （ES6 之後有 let 與 const 分別定義「變數」與「常數」。 與 var 不同的是，它們的 scope 是透過大括號 { } 來切分的。）這邊我們舉一個例子，當我們將 console.log(ASin) 放">
@@ -390,13 +390,23 @@
                 
               
 
-              <time title="創建時間：2019-10-17 13:08:39 / 修改時間：15:31:50" itemprop="dateCreated datePublished" datetime="2019-10-17T13:08:39+08:00">2019-10-17</time>
+              <time title="創建時間：2019-10-17 13:08:39" itemprop="dateCreated datePublished" datetime="2019-10-17T13:08:39+08:00">2019-10-17</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-10-18 11:37:16" itemprop="dateModified" datetime="2019-10-18T11:37:16+08:00">2019-10-18</time>
+              </span>
             
           
 
@@ -409,7 +419,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript核心概念/" itemprop="url" rel="index"><span itemprop="name">JavaScript核心概念</span></a></span>
 
                 
                 
@@ -454,7 +464,7 @@
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ASin = <span class="string">'名字'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ASin); <span class="comment">// Uncaught ReferenceError: ASin is not defined at &lt;anonymous&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="靜態作用域與動態作用域的差別"><a href="#靜態作用域與動態作用域的差別" class="headerlink" title="靜態作用域與動態作用域的差別"></a>靜態作用域與動態作用域的差別</h2><p>JavaScript 是採用靜態作用域(語法作用域)，靜態作用域是原始碼在透過直譯器解析語法時，就確定了它的作用域，例如我們上面範例中 <code>console.log(ASin)</code> 在寫 function 時就已經定義好他的作用域。而動態作用域則是在函式調用的時候才決定它的作用域。</p>
+<h2 id="靜態作用域與動態作用域的差別"><a href="#靜態作用域與動態作用域的差別" class="headerlink" title="靜態作用域與動態作用域的差別"></a>靜態作用域與動態作用域的差別</h2><p><strong>JavaScript 是採用靜態作用域(語法作用域)</strong>，靜態作用域是<strong>原始碼在透過直譯器解析語法時，就確定了它的作用域</strong>，例如我們上面範例中 <code>console.log(ASin)</code> 在寫 function 時就已經定義好他的作用域。而動態作用域則是在函式調用的時候才決定它的作用域。</p>
 <p><img src="https://i.imgur.com/IWF65C5.png" alt="靜態作用域與動態作用域"></p>
 <h2 id="JavaScript-作用域的查找"><a href="#JavaScript-作用域的查找" class="headerlink" title="JavaScript 作用域的查找"></a>JavaScript 作用域的查找</h2><p>在我們所寫的原始碼中最外層會有一個全域的作用域，然後是各個 function 所形成的作用域，各 function 間的作用域是獨立的。但是，當某個 function 內需要取用一個變數，而這個 function 內沒有這個變數時，就會向外查找，若有則取用，若沒有則會回報錯誤。<br><img src="https://i.imgur.com/YMOSrwU.png" alt="作用域"></p>
 <h2 id="靜態作用域與動態作用域執行的結果"><a href="#靜態作用域與動態作用域執行的結果" class="headerlink" title="靜態作用域與動態作用域執行的結果"></a>靜態作用域與動態作用域執行的結果</h2><p>所以當我們在寫好這些語法時，它的作用域就已經確定了，不會因為我們在執行時做改變。以下範例我們可以看到，<code>ASin</code> 的作用域在最外層，<code>HYH</code> 作用域只在 <code>CallName2()</code> 這個函式內，當我們執行 <code>CallName2()</code> 時，<code>CallName1()</code> 也會被調用並執行 <code>console.log(name)</code>，其結果會是 <code>ASin</code> 而不是 <code>HYH</code>，這邊我們要記得<strong>我們在寫好語法時，它的作用域就已經確定了</strong>，所以 <code>callName1()</code> 內沒有 <code>name</code> 這個變數因而往外層查找，得到 ASin 這個結果。</p>
@@ -586,7 +596,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -605,7 +615,9 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分類</span>
         </a>
       </div>

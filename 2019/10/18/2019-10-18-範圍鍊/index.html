@@ -94,14 +94,20 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="標籤">
-<meta property="og:url" content="https://kuncks.github.io/tags/index.html">
+  <meta name="description" content="再次思考作用域與執行環境的關係首先，若忘記語法作用域與執行環境可以先參考這兩篇（語法作用域、執行環境與執行堆疊）。我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 CallName2() 內在調用 CallName1() 時，CallName1()內的變數 name 會查找到全域變數的值 ASin ，所以我們了解到在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript核心概念-範圍鍊">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/18/2019-10-18-範圍鍊/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
+<meta property="og:description" content="再次思考作用域與執行環境的關係首先，若忘記語法作用域與執行環境可以先參考這兩篇（語法作用域、執行環境與執行堆疊）。我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 CallName2() 內在調用 CallName1() 時，CallName1()內的變數 name 會查找到全域變數的值 ASin ，所以我們了解到在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-07-25T01:18:40.717Z">
+<meta property="og:image" content="https://i.imgur.com/ODCknsn.png">
+<meta property="og:updated_time" content="2019-10-18T04:03:13.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="標籤">
+<meta name="twitter:title" content="JavaScript核心概念-範圍鍊">
+<meta name="twitter:description" content="再次思考作用域與執行環境的關係首先，若忘記語法作用域與執行環境可以先參考這兩篇（語法作用域、執行環境與執行堆疊）。我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 CallName2() 內在調用 CallName1() 時，CallName1()內的變數 name 會查找到全域變數的值 ASin ，所以我們了解到在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯">
+<meta name="twitter:image" content="https://i.imgur.com/ODCknsn.png">
 
 
 
@@ -109,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/tags/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/18/2019-10-18-範圍鍊/">
 
 
 
@@ -120,7 +126,7 @@
 </script>
 
   
-  <title>標籤 | ASin's Web Learning</title>
+  <title>JavaScript核心概念-範圍鍊 | ASin's Web Learning</title>
   
 
 
@@ -222,7 +228,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -320,90 +326,216 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/18/2019-10-18-範圍鍊/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ASin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ASin's Web Learning">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">標籤
-
-</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
+          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-範圍鍊
+
               
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+
               
                 
-                  
+              
+
+              <time title="創建時間：2019-10-18 10:35:06 / 修改時間：12:03:13" itemprop="dateCreated datePublished" datetime="2019-10-18T10:35:06+08:00">2019-10-18</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript核心概念/" itemprop="url" rel="index"><span itemprop="name">JavaScript核心概念</span></a></span>
+
+                
                 
               
-              目前共有 1 個標籤
-            </div>
-            <div class="tag-cloud-tags">
-              
-                <a href="/tags/JavaScript/" style="font-size: 12px; color: #ccc">JavaScript</a>
-              
-            </div>
-          </div>
-        
-      </div>
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="再次思考作用域與執行環境的關係"><a href="#再次思考作用域與執行環境的關係" class="headerlink" title="再次思考作用域與執行環境的關係"></a>再次思考作用域與執行環境的關係</h2><p>首先，若忘記語法作用域與執行環境可以先參考這兩篇（<a href="/2019/10/17/2019-10-17-語法作用域-LexicalScope/" title="語法作用域">語法作用域</a>、<a href="/2019/10/17/2019-10-17-執行環境與執行堆疊/" title="執行環境與執行堆疊">執行環境與執行堆疊</a>）。<br>我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 <code>CallName2()</code> 內在調用 <code>CallName1()</code> 時，<code>CallName1()</code>內的變數 <code>name</code> 會查找到全域變數的值 <code>ASin</code> ，所以我們了解到<strong>在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'ASin'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CallName2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'HYH'</span>;</span><br><span class="line">  callName1();</span><br><span class="line">&#125;</span><br><span class="line">CallName2(); <span class="comment">// ASin</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h2><p>延伸上面的範例，其實兩個 function 已經各自產生了一個範圍鍊，當本身的 function 內找不到變數時，會再往外層尋找，這樣將查找範圍又延伸到外層一層一層出去，就是範圍鍊的形成。痾….，這範圍好像有點短，我們再來看下面的範例。<br><img src="https://i.imgur.com/ODCknsn.png" alt="範圍鍊"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">'ASin'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">meetSomeone</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">'漂亮的HYH'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetHYH</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayHelloToHYH</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'哈囉～ '</span> + person);</span><br><span class="line">    &#125;</span><br><span class="line">    sayHelloToHYH();</span><br><span class="line">  &#125;</span><br><span class="line">  sayHello();</span><br><span class="line">  meetHYH();</span><br><span class="line">&#125;</span><br><span class="line">sayHello(); <span class="comment">// Hello ASin</span></span><br><span class="line">meetSomeone(); <span class="comment">// Hello ASin &amp; 哈囉～ 漂亮的HYH</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>當我們執行<code>sayHello()</code>時，由於函式內並沒有<code>person</code>這個變數，所以往外層全域來查找找到了 ‘ASin’ 。</li>
+<li>那麼在執行<code>meetSomeone()</code>時，裡面調用了<code>sayHello()</code>，記得我們說過作用域早已經定義好了，雖然在<code>meetSomeone()</code>內調用，但它會忽視<code>var person = &#39;漂亮的HYH&#39;</code>，所以在<code>sayHello()</code>原始碼往外一層就是全域，同樣找到了’ASin’。</li>
+<li>接下來執行<code>meetHYH()</code>，裡面調用了<code>sayHelloToHYH()</code>，所以<code>sayHelloToHYH()</code>從他原始碼已定義好的作用域開始查找變數<code>person</code>，嗯…函式本身沒有<code>person</code>，再往外一層 → <code>meetHYH()</code>內…..還是沒有找到，再往外一層 → <code>meetSomeone()</code>內….發現<code>person</code>！！！終於讓我找到妳啦！所以 console 印出了<code>哈囉～ 漂亮的HYH</code>的結果。</li>
+</ul>
+<p>從<code>meetSomeone()</code>我們可以知道，當查找不到變數時會往外一層一層的找(範圍鍊)，而從哪裡開始查找則是看他已定義好的作用域，而不是執行環境。</p>
+
       
     </div>
-    
-
-
 
     
+
+    
+      
+    
+
     
     
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/17/2019-10-17-執行環境與執行堆疊/" rel="next" title="JavaScript核心概念-執行環境與執行堆疊">
+                <i class="fa fa-chevron-left"></i> JavaScript核心概念-執行環境與執行堆疊
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -423,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -519,6 +660,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#再次思考作用域與執行環境的關係"><span class="nav-number">1.</span> <span class="nav-text">再次思考作用域與執行環境的關係</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#範圍鍊"><span class="nav-number">2.</span> <span class="nav-text">範圍鍊</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -670,6 +828,8 @@
 
 
 
+
+  
 
 
 
