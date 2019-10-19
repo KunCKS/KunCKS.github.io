@@ -94,20 +94,30 @@
   };
 </script>
 
-  <meta name="description" content="再次思考作用域與執行環境的關係首先，若忘記語法作用域與執行環境可以先參考這兩篇（語法作用域、執行環境與執行堆疊）。我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 CallName2() 內在調用 CallName1() 時，CallName1()內的變數 name 會查找到全域變數的值 ASin ，所以我們了解到在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯">
+  <meta name="description" content="Handsome Man 怎可能不是我，這一定是有什麼誤會…..當我們宣告變數並取用時，有時候會發生 undefined 、 is not defined 或是取得的值跟想像中的不一樣，囧： 12var HandsomeMan = &apos;我&apos;;console.log(HandsomeMan);  ……，Handsome Man 怎會是 undefined，Handsome Man 是我啊！！！ 12c">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript核心概念-範圍鍊">
-<meta property="og:url" content="https://kuncks.github.io/2019/10/18/2019-10-18-範圍鍊/index.html">
+<meta property="og:title" content="JavaScript核心概念-提升(Hoisting)">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/18/2019-10-18-提升-hoisting/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
-<meta property="og:description" content="再次思考作用域與執行環境的關係首先，若忘記語法作用域與執行環境可以先參考這兩篇（語法作用域、執行環境與執行堆疊）。我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 CallName2() 內在調用 CallName1() 時，CallName1()內的變數 name 會查找到全域變數的值 ASin ，所以我們了解到在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯">
+<meta property="og:description" content="Handsome Man 怎可能不是我，這一定是有什麼誤會…..當我們宣告變數並取用時，有時候會發生 undefined 、 is not defined 或是取得的值跟想像中的不一樣，囧： 12var HandsomeMan = &apos;我&apos;;console.log(HandsomeMan);  ……，Handsome Man 怎會是 undefined，Handsome Man 是我啊！！！ 12c">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="https://i.imgur.com/ODCknsn.png">
-<meta property="og:updated_time" content="2019-10-18T04:03:13.944Z">
+<meta property="og:image" content="https://i.imgur.com/AK3wWwz.png">
+<meta property="og:image" content="https://i.imgur.com/qoM9qHg.png">
+<meta property="og:image" content="https://i.imgur.com/4XejTdB.png">
+<meta property="og:image" content="https://i.imgur.com/zvyZSow.gif">
+<meta property="og:image" content="https://i.imgur.com/lvwoX1V.gif">
+<meta property="og:image" content="https://i.imgur.com/o5t2Yya.gif">
+<meta property="og:image" content="https://i.imgur.com/DIy9SQp.gif">
+<meta property="og:image" content="https://i.imgur.com/QuExGch.gif">
+<meta property="og:image" content="https://i.imgur.com/R6obtTh.png">
+<meta property="og:image" content="https://i.imgur.com/DBxQsWh.png">
+<meta property="og:image" content="https://i.imgur.com/1cUEVz6.png">
+<meta property="og:updated_time" content="2019-10-19T06:14:26.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript核心概念-範圍鍊">
-<meta name="twitter:description" content="再次思考作用域與執行環境的關係首先，若忘記語法作用域與執行環境可以先參考這兩篇（語法作用域、執行環境與執行堆疊）。我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 CallName2() 內在調用 CallName1() 時，CallName1()內的變數 name 會查找到全域變數的值 ASin ，所以我們了解到在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯">
-<meta name="twitter:image" content="https://i.imgur.com/ODCknsn.png">
+<meta name="twitter:title" content="JavaScript核心概念-提升(Hoisting)">
+<meta name="twitter:description" content="Handsome Man 怎可能不是我，這一定是有什麼誤會…..當我們宣告變數並取用時，有時候會發生 undefined 、 is not defined 或是取得的值跟想像中的不一樣，囧： 12var HandsomeMan = &apos;我&apos;;console.log(HandsomeMan);  ……，Handsome Man 怎會是 undefined，Handsome Man 是我啊！！！ 12c">
+<meta name="twitter:image" content="https://i.imgur.com/AK3wWwz.png">
 
 
 
@@ -115,7 +125,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/2019/10/18/2019-10-18-範圍鍊/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/18/2019-10-18-提升-hoisting/">
 
 
 
@@ -126,7 +136,7 @@
 </script>
 
   
-  <title>JavaScript核心概念-範圍鍊 | ASin's Web Learning</title>
+  <title>JavaScript核心概念-提升(Hoisting) | ASin's Web Learning</title>
   
 
 
@@ -346,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/18/2019-10-18-範圍鍊/">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/18/2019-10-18-提升-hoisting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ASin">
@@ -363,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-範圍鍊
+          <h1 class="post-title" itemprop="name headline">JavaScript核心概念-提升(Hoisting)
 
               
             
@@ -389,13 +399,23 @@
                 
               
 
-              <time title="創建時間：2019-10-18 10:35:06 / 修改時間：12:03:13" itemprop="dateCreated datePublished" datetime="2019-10-18T10:35:06+08:00">2019-10-18</time>
+              <time title="創建時間：2019-10-18 22:37:39" itemprop="dateCreated datePublished" datetime="2019-10-18T22:37:39+08:00">2019-10-18</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-10-19 14:14:26" itemprop="dateModified" datetime="2019-10-19T14:14:26+08:00">2019-10-19</time>
+              </span>
             
           
 
@@ -448,18 +468,37 @@
       
 
       
-        <h2 id="再次思考作用域與執行環境的關係"><a href="#再次思考作用域與執行環境的關係" class="headerlink" title="再次思考作用域與執行環境的關係"></a>再次思考作用域與執行環境的關係</h2><p>首先，若忘記語法作用域與執行環境可以先參考這兩篇（<a href="/2019/10/17/2019-10-17-語法作用域-LexicalScope/" title="語法作用域">語法作用域</a>、<a href="/2019/10/17/2019-10-17-執行環境與執行堆疊/" title="執行環境與執行堆疊">執行環境與執行堆疊</a>）。<br>我們在語法作用域時有提到 callName（）的範例，因此我們可以得知 <code>CallName2()</code> 內在調用 <code>CallName1()</code> 時，<code>CallName1()</code>內的變數 <code>name</code> 會查找到全域變數的值 <code>ASin</code> ，所以我們了解到<strong>在撰寫原始碼時就已經定義好它的作用域，與他的執行環境變沒有關聯</strong>。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'ASin'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CallName2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'HYH'</span>;</span><br><span class="line">  callName1();</span><br><span class="line">&#125;</span><br><span class="line">CallName2(); <span class="comment">// ASin</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Handsome-Man-怎可能不是我，這一定是有什麼誤會…"><a href="#Handsome-Man-怎可能不是我，這一定是有什麼誤會…" class="headerlink" title="Handsome Man 怎可能不是我，這一定是有什麼誤會….."></a>Handsome Man 怎可能不是我，這一定是有什麼誤會…..</h2><p>當我們宣告變數並取用時，有時候會發生 undefined 、 is not defined 或是取得的值跟想像中的不一樣，囧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HandsomeMan = <span class="string">'我'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(HandsomeMan);</span><br></pre></td></tr></table></figure>
 
-<h2 id="範圍鍊"><a href="#範圍鍊" class="headerlink" title="範圍鍊"></a>範圍鍊</h2><p>延伸上面的範例，其實兩個 function 已經各自產生了一個範圍鍊，當本身的 function 內找不到變數時，會再往外層尋找，這樣將查找範圍又延伸到外層一層一層出去，就是範圍鍊的形成。痾….，這範圍好像有點短，我們再來看下面的範例。<br><img src="https://i.imgur.com/ODCknsn.png" alt="範圍鍊"></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="string">'ASin'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + person);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">meetSomeone</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> person = <span class="string">'漂亮的HYH'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">meetHYH</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayHelloToHYH</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'哈囉～ '</span> + person);</span><br><span class="line">    &#125;</span><br><span class="line">    sayHelloToHYH();</span><br><span class="line">  &#125;</span><br><span class="line">  sayHello();</span><br><span class="line">  meetHYH();</span><br><span class="line">&#125;</span><br><span class="line">sayHello(); <span class="comment">// Hello ASin</span></span><br><span class="line">meetSomeone(); <span class="comment">// Hello ASin &amp; 哈囉～ 漂亮的HYH</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/AK3wWwz.png" alt="Variables Hoisting"><br>……，Handsome Man 怎會是 undefined，Handsome Man 是我啊！！！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(HandsomeMan);</span><br><span class="line"><span class="keyword">var</span> HandsomeMan = <span class="string">'我'</span>;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>當我們執行<code>sayHello()</code>時，由於函式內並沒有<code>person</code>這個變數，所以往外層全域來查找找到了 ‘ASin’ 。</li>
-<li>那麼在執行<code>meetSomeone()</code>時，裡面調用了<code>sayHello()</code>，記得我們說過作用域早已經定義好了，雖然在<code>meetSomeone()</code>內調用，但它會忽視<code>var person = &#39;漂亮的HYH&#39;</code>，所以在<code>sayHello()</code>原始碼往外一層就是全域，同樣找到了’ASin’。</li>
-<li>接下來執行<code>meetHYH()</code>，裡面調用了<code>sayHelloToHYH()</code>，所以<code>sayHelloToHYH()</code>從他原始碼已定義好的作用域開始查找變數<code>person</code>，嗯…函式本身沒有<code>person</code>，再往外一層 → <code>meetHYH()</code>內…..還是沒有找到，再往外一層 → <code>meetSomeone()</code>內….發現<code>person</code>！！！終於讓我找到妳啦！所以 console 印出了<code>哈囉～ 漂亮的HYH</code>的結果。</li>
-</ul>
-<p>從<code>meetSomeone()</code>我們可以知道，當查找不到變數時會往外一層一層的找(範圍鍊)，而從哪裡開始查找則是看他已定義好的作用域，而不是執行環境。</p>
+<p><img src="https://i.imgur.com/qoM9qHg.png" alt="Variables Hoisting"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(HandsomeMan);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/4XejTdB.png" alt="Variables Hoisting"><br>此時就要考慮到是不是 <strong>hoisting</strong> 的關係。接下來我們將了解變數在宣告時會怎樣去執行。</p>
+<h2 id="創造環境與執行"><a href="#創造環境與執行" class="headerlink" title="創造環境與執行"></a>創造環境與執行</h2><p>在<a href="/2019/10/17/2019-10-17-執行環境與執行堆疊/" title="執行環境與執行堆疊">執行環境與執行堆疊</a>這篇文章有講過，我們去執行程式碼時會建立執行環境，而執行環境的建立其實是有步驟的，首先，會先<strong>創造環境</strong>，變數在宣告時，會先將變數放到記憶體<code>key</code>的位置，如下圖 2 的 a、b、c 變數，<strong>但在這個階段還不會賦予值給它</strong>，在創造環境時就先在記憶體佔了一個位置，一直等到我們執行時才會賦予值，而這個流程我們稱為 <strong>提升（hoisting）</strong>。</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://i.imgur.com/zvyZSow.gif" alt="Variables Hoisting"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://i.imgur.com/lvwoX1V.gif" alt="Variables Hoisting"></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="https://i.imgur.com/o5t2Yya.gif" alt="Variables Hoisting"></div></div></div></div>
+<p>因此，我們可以將得到 <code>undefined</code> 結果的原始碼執行拆解為下列的步驟，在創造階段先於記憶體內建立 <code>HandsomeMan</code> 這個 <code>key</code> 的位置，然後我們就先執行 <code>console.log(HandsomeMan)</code>，但此時雖然已經將變數帶入到記憶體的 <code>key</code> 中，但是並沒有賦予它值，所以會得到 <code>undefined</code> 的結果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(HandsomeMan);</span><br><span class="line"><span class="keyword">var</span> HandsomeMan = <span class="string">'我'</span>;</span><br><span class="line"><span class="comment">// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓事實上執行步驟是這樣↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span></span><br><span class="line"><span class="keyword">var</span> HandsomeMan; <span class="comment">// 創造階段</span></span><br><span class="line"><span class="built_in">console</span>.log(HandsomeMan); <span class="comment">// Handsome Man 是 undefined</span></span><br><span class="line">HandsomeMan = <span class="string">'我'</span>; <span class="comment">// 執行階段</span></span><br></pre></td></tr></table></figure>
+
+<p>至於，結果為 <code>is not defined</code> ，是根本沒有宣告變數，所以會有這樣的結果。</p>
+<h2 id="函式陳述式在創造階段優先載入"><a href="#函式陳述式在創造階段優先載入" class="headerlink" title="函式陳述式在創造階段優先載入"></a>函式陳述式在創造階段優先載入</h2><p>除了變數以外，我們在使用<strong>函式陳述式</strong>宣告變數時其優先權是不同的，從圖一可以看到函式陳述式在創造階段時就會優先載入進去記憶體，這個階段函式就已經可以完整的運行，下面我們舉一個範例來說明。</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="https://i.imgur.com/DIy9SQp.gif" alt></div><div class="group-picture-column" style="width: 50%;"><img src="https://i.imgur.com/QuExGch.gif" alt></div></div></div></div>
+
+<h3 id="在函式原始碼前執行函式"><a href="#在函式原始碼前執行函式" class="headerlink" title="在函式原始碼前執行函式"></a>在函式原始碼前執行函式</h3><p>當調用<code>callName()</code>是在函式原始碼前面時，由於函式在創造階段就已經將完整函式載入，所以載前面調用也可以完整地去執行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">callName(); <span class="comment">// 悟空</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'悟空'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/R6obtTh.png" alt></p>
+<h3 id="函式陳述式與函式表達式在-Hoisting-的差異"><a href="#函式陳述式與函式表達式在-Hoisting-的差異" class="headerlink" title="函式陳述式與函式表達式在 Hoisting 的差異"></a>函式陳述式與函式表達式在 Hoisting 的差異</h3><p>函式陳述式與函式表達式雖然都可以調用函式執行功能，但他們在建立時是有差異的，從範例中我們可以看到<code>callName()</code>有兩次調用，在第一次調用時，函式陳述式已經優先在創造階段完整載入，而函式表達式在創造階段雖然宣告<code>callName</code>變數，但這邊變數在重複宣告時是沒有用的，所以第一次的調用會得到<code>悟空</code>的結果，一直到了第二次調用時，函式表達式的變數已經賦予值，所以得到<code>悟飯</code>的結果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">callName();</span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 函式表達式</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'悟飯'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 函式陳述式</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'悟空'</span>);</span><br><span class="line">&#125;</span><br><span class="line">callName();</span><br><span class="line"></span><br><span class="line"><span class="comment">// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓事實上執行步驟是這樣↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 函式陳述式</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'悟空'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> callName;</span><br><span class="line"><span class="comment">//執行階段</span></span><br><span class="line">callName();</span><br><span class="line">callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 函式表達式</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'悟飯'</span>);</span><br><span class="line">&#125;;</span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/DBxQsWh.png" alt><br>最後再來一個範例，在原始碼中兩個名稱相同函式陳述式後方都調用此函式，得到的結果都是哇沙米 🤮，這邊我們同樣利用創造階段與執行階段來區分，事實上在創造階段時，兩個函式都已經完整載入，但後面會覆蓋掉前面的，然後在執行階段執行了兩次函式都會是想吃哇沙米這個函式 🤮。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatFood</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'想吃沙西米'</span>);</span><br><span class="line">&#125;</span><br><span class="line">eatFood();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatFood</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'想吃哇沙米'</span>);</span><br><span class="line">&#125;</span><br><span class="line">eatFood();</span><br><span class="line"></span><br><span class="line"><span class="comment">// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓事實上執行步驟是這樣↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//創造階段</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatFood</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'想吃沙西米'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatFood</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'想吃哇沙米'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//執行階段</span></span><br><span class="line">eatFood();</span><br><span class="line">eatFood();</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/1cUEVz6.png" alt></p>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>記得變數與函式有 Hoisting 的特性，其流程可以分為<strong>創造階段</strong>及<strong>執行階段</strong>，函式在創造階段就會優先完整載入。</p>
 
       
     </div>
@@ -503,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/17/2019-10-17-執行環境與執行堆疊/" rel="next" title="JavaScript核心概念-執行環境與執行堆疊">
-                <i class="fa fa-chevron-left"></i> JavaScript核心概念-執行環境與執行堆疊
+              <a href="/2019/10/18/2019-10-18-範圍鍊/" rel="next" title="JavaScript核心概念-範圍鍊">
+                <i class="fa fa-chevron-left"></i> JavaScript核心概念-範圍鍊
               </a>
             
           </div>
@@ -512,10 +551,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/18/2019-10-18-提升-hoisting/" rel="prev" title="JavaScript核心概念-提升(Hoisting)">
-                JavaScript核心概念-提升(Hoisting) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#再次思考作用域與執行環境的關係"><span class="nav-number">1.</span> <span class="nav-text">再次思考作用域與執行環境的關係</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#範圍鍊"><span class="nav-number">2.</span> <span class="nav-text">範圍鍊</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Handsome-Man-怎可能不是我，這一定是有什麼誤會…"><span class="nav-number">1.</span> <span class="nav-text">Handsome Man 怎可能不是我，這一定是有什麼誤會…..</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#創造環境與執行"><span class="nav-number">2.</span> <span class="nav-text">創造環境與執行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函式陳述式在創造階段優先載入"><span class="nav-number">3.</span> <span class="nav-text">函式陳述式在創造階段優先載入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在函式原始碼前執行函式"><span class="nav-number">3.1.</span> <span class="nav-text">在函式原始碼前執行函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函式陳述式與函式表達式在-Hoisting-的差異"><span class="nav-number">3.2.</span> <span class="nav-text">函式陳述式與函式表達式在 Hoisting 的差異</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">4.</span> <span class="nav-text">總結</span></a></li></ol></div>
             
 
           </div>
