@@ -94,18 +94,23 @@
   };
 </script>
 
-  <meta name="description" content="點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &amp;#123;  name: &amp;#123;">
+  <meta name="description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript - 關於物件存取屬性的方法">
-<meta property="og:url" content="https://kuncks.github.io/2019/08/16/2019-8-16-about-assess-object's properties/index.html">
+<meta property="og:title" content="Promise - 處理同步、非同步事件 - 1">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/26/2019-10-26-初學Promise/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
-<meta property="og:description" content="點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &amp;#123;  name: &amp;#123;">
+<meta property="og:description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-10-16T11:02:21.381Z">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20181014/201103713ObcIuaSP4.jpg">
+<meta property="og:image" content="https://i.imgur.com/PbcjInk.png">
+<meta property="og:image" content="https://i.imgur.com/0b3qBN7.gif">
+<meta property="og:image" content="https://i.imgur.com/p62pdhH.gif">
+<meta property="og:updated_time" content="2019-10-26T10:08:12.854Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript - 關於物件存取屬性的方法">
-<meta name="twitter:description" content="點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &amp;#123;  name: &amp;#123;">
+<meta name="twitter:title" content="Promise - 處理同步、非同步事件 - 1">
+<meta name="twitter:description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20181014/201103713ObcIuaSP4.jpg">
 
 
 
@@ -113,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/2019/08/16/2019-8-16-about-assess-object's properties/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/26/2019-10-26-初學Promise/">
 
 
 
@@ -124,7 +129,7 @@
 </script>
 
   
-  <title>JavaScript - 關於物件存取屬性的方法 | ASin's Web Learning</title>
+  <title>Promise - 處理同步、非同步事件 - 1 | ASin's Web Learning</title>
   
 
 
@@ -355,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/08/16/2019-8-16-about-assess-object's properties/">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/26/2019-10-26-初學Promise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ASin">
@@ -372,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript - 關於物件存取屬性的方法
+          <h1 class="post-title" itemprop="name headline">Promise - 處理同步、非同步事件 - 1
 
               
             
@@ -398,7 +403,7 @@
                 
               
 
-              <time title="創建時間：2019-08-16 14:39:28" itemprop="dateCreated datePublished" datetime="2019-08-16T14:39:28+08:00">2019-08-16</time>
+              <time title="創建時間：2019-10-26 14:58:20 / 修改時間：18:08:12" itemprop="dateCreated datePublished" datetime="2019-10-26T14:58:20+08:00">2019-10-26</time>
             </span>
           
 
@@ -406,33 +411,8 @@
             
 
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-10-16 19:02:21" itemprop="dateModified" datetime="2019-10-16T19:02:21+08:00">2019-10-16</time>
-              </span>
-            
           
 
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -467,14 +447,18 @@
       
 
       
-        <h2 id="點記法-Dot-notation"><a href="#點記法-Dot-notation" class="headerlink" title="點記法 (Dot notation)"></a>點記法 (Dot notation)</h2><p>我們可透過點記法來存取物件的屬性與函式。為了存取物件內所<em>封裝</em>的東西，我們需要輸入物件名稱 (這裡是 person)，來作為<em>命名空間 (Namespace)</em>。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: &#123;</span><br><span class="line">    first: <span class="string">'弟弟'</span>,</span><br><span class="line">    last: <span class="string">'帥氣'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  age: <span class="number">20</span>,</span><br><span class="line">  interests: [<span class="string">'打球'</span>, <span class="string">'看電視'</span>, <span class="string">'睡覺'</span>],</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="callback-hell"><a href="#callback-hell" class="headerlink" title="callback hell"></a>callback hell</h2><p>JavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（<a href="/2019/10/22/2019-10-22-為何setTimeout不一定會在1秒後執行呢？/" title="參考這邊">參考這邊</a>），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。<br><img src="https://ithelp.ithome.com.tw/upload/images/20181014/201103713ObcIuaSP4.jpg" alt></p>
+<h2 id="Promise-的狀態與流程"><a href="#Promise-的狀態與流程" class="headerlink" title="Promise 的狀態與流程"></a>Promise 的狀態與流程</h2><p>Promise 物件會有以下這幾種狀態：</p>
+<ul>
+<li>pending: 等待中的初始狀態</li>
+<li>fulfilled: 正確完成</li>
+<li>rejected: 已拒絕，操作失敗</li>
+</ul>
+<p>剛進入 Promise 時，我們會進入 pending (等待事件完成)的狀態，接下來會依據事件的成功與否來回傳成功或拒絕的 callback，通常我們會使用 <code>resolve</code>、<code>reject</code> 兩個變數來傳送成功與失敗的訊息(資料)。<br>以下圖為範例，ASin 一開始在原地準備要跑步，此時他有兩種結果，一種是他正確的完成跑步這件事，最後他回報他跑了幾秒鐘；另一種結果是他拒絕跑步這件事，為什麼？他回報他就是不想跑步了。</p>
+<p><img src="https://i.imgur.com/PbcjInk.png" alt="Promise 流程圖"><br>我們將這整個過程寫成 Promise 物件來進行，可得以下的原始碼，首先，我們利用建構式建立一個 Promise 物件，並將此物件賦予給 running 這個變數，在 Promise 物件中引用 <code>resolve</code>、<code>reject</code> 變數來做 fulfilled 或 rejected 狀態時的訊息(資料)傳遞，在此我們寫了隨機產生是否要跑步及跑步秒數的變數，帶入我們的 if…else 陳述式，當 run 為 true (確定跑步,fulfilled)時，則調用 resolve() 來傳遞跑了幾秒鐘，若是 run 為 false，則調用 reject() 來傳遞不想跑了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> running = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 使用 resolve、reject 兩個變數來傳送訊息</span></span><br><span class="line">  <span class="keyword">let</span> run = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">2</span>); <span class="comment">// 隨機產生 0 或 1 同 false or true</span></span><br><span class="line">  <span class="keyword">let</span> duration = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span>) + <span class="number">1</span>; <span class="comment">// 隨機產生 0 ~ 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'隨機是否要跑步：'</span> + run, <span class="string">'預計跑步秒數：'</span> + duration);</span><br><span class="line">  <span class="keyword">if</span> (run) &#123;</span><br><span class="line">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">'跑了'</span> + duration + <span class="string">'秒'</span>);</span><br><span class="line">    &#125;, duration * <span class="number">1000</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="string">'我不想跑了'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">running</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person.age <span class="comment">//目標物件的屬性，20</span></span><br><span class="line">person.interests[<span class="number">1</span>] <span class="comment">//陣列屬性，看電視</span></span><br><span class="line">person.sayHello() <span class="comment">//呼叫函式，Hello</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="括弧記法-Bracket-notation"><a href="#括弧記法-Bracket-notation" class="headerlink" title="括弧記法 (Bracket notation)"></a>括弧記法 (Bracket notation)</h2><p>括弧記法則是另一個存取屬性的方法，是透過各屬性相關的名稱來選擇項目</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[<span class="string">'age'</span>] <span class="comment">// 20</span></span><br><span class="line">person[<span class="string">'name'</span>][<span class="string">'first'</span>] <span class="comment">// 弟弟</span></span><br></pre></td></tr></table></figure>
-
+<p>最後，我們如何去執行這個物件來處理非同步與同步事件並接收訊息呢？<br>我們可以使用 <code>then()</code>及 <code>catch()</code>來接收，從範例中可以看到，當 Promise 中執行的條件有滿足時，我們在<code>then()</code>傳入一個 function 並使用 data 變數來接收 fulfilled 狀態所傳遞的訊息，同樣的 rejected 狀態則是使用<code>catch()</code>來接收。<br><img src="https://i.imgur.com/0b3qBN7.gif" alt="Promise執行結果-fulfilled"><br><img src="https://i.imgur.com/p62pdhH.gif" alt="Promise執行結果-rejected"></p>
 
       
     </div>
@@ -518,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/12/2019-8-16-JavaScript取得當前時間/" rel="next" title="JavaScript - 取得當前時間的方法">
-                <i class="fa fa-chevron-left"></i> JavaScript - 取得當前時間的方法
+              <a href="/2019/10/26/2019-10-26-陳述式與表達式/" rel="next" title="JavaScript核心概念 - 陳述式與表達式">
+                <i class="fa fa-chevron-left"></i> JavaScript核心概念 - 陳述式與表達式
               </a>
             
           </div>
@@ -527,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/" rel="prev" title="JavaScript核心概念 - JavaScript是如何運行？">
-                JavaScript核心概念 - JavaScript是如何運行？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#點記法-Dot-notation"><span class="nav-number">1.</span> <span class="nav-text">點記法 (Dot notation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#括弧記法-Bracket-notation"><span class="nav-number">2.</span> <span class="nav-text">括弧記法 (Bracket notation)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#callback-hell"><span class="nav-number">1.</span> <span class="nav-text">callback hell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-的狀態與流程"><span class="nav-number">2.</span> <span class="nav-text">Promise 的狀態與流程</span></a></li></ol></div>
             
 
           </div>

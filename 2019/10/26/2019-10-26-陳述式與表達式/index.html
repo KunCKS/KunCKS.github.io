@@ -94,18 +94,21 @@
   };
 </script>
 
-  <meta name="description" content="點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &amp;#123;  name: &amp;#123;">
+  <meta name="description" content="陳述式（Statement）用於命令或指定一系列的操作，要注意的是此語法不會回傳一個結果 。例如：  宣告 var, let, const, 函式 function, 迭代 for 迴圈, 流程控制 if…else…  ……等等，可參考 陳述式 MDN。 表達式（Expression）又可稱為表示式與運算式，經常透過一些符號結合上下文並運算及回傳一個結果 。可以分成兩種類型：  運算式 a = 1">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript - 關於物件存取屬性的方法">
-<meta property="og:url" content="https://kuncks.github.io/2019/08/16/2019-8-16-about-assess-object's properties/index.html">
+<meta property="og:title" content="JavaScript核心概念 - 陳述式與表達式">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/26/2019-10-26-陳述式與表達式/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
-<meta property="og:description" content="點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &amp;#123;  name: &amp;#123;">
+<meta property="og:description" content="陳述式（Statement）用於命令或指定一系列的操作，要注意的是此語法不會回傳一個結果 。例如：  宣告 var, let, const, 函式 function, 迭代 for 迴圈, 流程控制 if…else…  ……等等，可參考 陳述式 MDN。 表達式（Expression）又可稱為表示式與運算式，經常透過一些符號結合上下文並運算及回傳一個結果 。可以分成兩種類型：  運算式 a = 1">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-10-16T11:02:21.381Z">
+<meta property="og:image" content="https://i.imgur.com/BBS3QnA.png">
+<meta property="og:image" content="https://i.imgur.com/C0m7WPN.png">
+<meta property="og:updated_time" content="2019-10-26T06:58:38.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript - 關於物件存取屬性的方法">
-<meta name="twitter:description" content="點記法 (Dot notation)我們可透過點記法來存取物件的屬性與函式。為了存取物件內所封裝的東西，我們需要輸入物件名稱 (這裡是 person)，來作為命名空間 (Namespace)。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說： 1234567891011var person = &amp;#123;  name: &amp;#123;">
+<meta name="twitter:title" content="JavaScript核心概念 - 陳述式與表達式">
+<meta name="twitter:description" content="陳述式（Statement）用於命令或指定一系列的操作，要注意的是此語法不會回傳一個結果 。例如：  宣告 var, let, const, 函式 function, 迭代 for 迴圈, 流程控制 if…else…  ……等等，可參考 陳述式 MDN。 表達式（Expression）又可稱為表示式與運算式，經常透過一些符號結合上下文並運算及回傳一個結果 。可以分成兩種類型：  運算式 a = 1">
+<meta name="twitter:image" content="https://i.imgur.com/BBS3QnA.png">
 
 
 
@@ -113,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/2019/08/16/2019-8-16-about-assess-object's properties/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/26/2019-10-26-陳述式與表達式/">
 
 
 
@@ -124,7 +127,7 @@
 </script>
 
   
-  <title>JavaScript - 關於物件存取屬性的方法 | ASin's Web Learning</title>
+  <title>JavaScript核心概念 - 陳述式與表達式 | ASin's Web Learning</title>
   
 
 
@@ -355,7 +358,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/08/16/2019-8-16-about-assess-object's properties/">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/26/2019-10-26-陳述式與表達式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ASin">
@@ -372,7 +375,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript - 關於物件存取屬性的方法
+          <h1 class="post-title" itemprop="name headline">JavaScript核心概念 - 陳述式與表達式
 
               
             
@@ -398,23 +401,13 @@
                 
               
 
-              <time title="創建時間：2019-08-16 14:39:28" itemprop="dateCreated datePublished" datetime="2019-08-16T14:39:28+08:00">2019-08-16</time>
+              <time title="創建時間：2019-10-26 11:08:20 / 修改時間：14:58:38" itemprop="dateCreated datePublished" datetime="2019-10-26T11:08:20+08:00">2019-10-26</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新於</span>
-                
-                <time title="修改時間：2019-10-16 19:02:21" itemprop="dateModified" datetime="2019-10-16T19:02:21+08:00">2019-10-16</time>
-              </span>
             
           
 
@@ -427,7 +420,7 @@
                 <span class="post-meta-item-text">分類於</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript核心概念/" itemprop="url" rel="index"><span itemprop="name">JavaScript核心概念</span></a></span>
 
                 
                 
@@ -467,13 +460,36 @@
       
 
       
-        <h2 id="點記法-Dot-notation"><a href="#點記法-Dot-notation" class="headerlink" title="點記法 (Dot notation)"></a>點記法 (Dot notation)</h2><p>我們可透過點記法來存取物件的屬性與函式。為了存取物件內所<em>封裝</em>的東西，我們需要輸入物件名稱 (這裡是 person)，來作為<em>命名空間 (Namespace)</em>。接著寫一個「點」以及想存取的項目，可能是簡單屬性的名稱、陣列屬性的項目，又或是針對物件函式之一的呼叫。舉例來說：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: &#123;</span><br><span class="line">    first: <span class="string">'弟弟'</span>,</span><br><span class="line">    last: <span class="string">'帥氣'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  age: <span class="number">20</span>,</span><br><span class="line">  interests: [<span class="string">'打球'</span>, <span class="string">'看電視'</span>, <span class="string">'睡覺'</span>],</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="陳述式（Statement）"><a href="#陳述式（Statement）" class="headerlink" title="陳述式（Statement）"></a>陳述式（Statement）</h2><p>用於命令或指定一系列的操作，要注意的是此語法<font color="red"><strong>不會回傳一個結果</strong></font> 。例如：</p>
+<ul>
+<li>宣告 var, let, const,</li>
+<li>函式 function,</li>
+<li>迭代 for 迴圈,</li>
+<li>流程控制 if…else…</li>
+</ul>
+<p>……等等，可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements" target="_blank" rel="noopener">陳述式 MDN</a>。</p>
+<h2 id="表達式（Expression）"><a href="#表達式（Expression）" class="headerlink" title="表達式（Expression）"></a>表達式（Expression）</h2><p>又可稱為<strong>表示式</strong>與<strong>運算式</strong>，經常透過一些符號結合上下文並運算及<font color="red"><strong>回傳一個結果</strong></font> 。可以分成兩種類型：</p>
+<ul>
+<li>運算式 a = 1 。 這個使用 = 運算子的運算式會將數值 1 賦與給 a。 運算式本身也會被解析為 a。</li>
+<li>運算式 1 + 2 。 這個運算式使用 + 運算子把 1 和 2 加起來，沒有將值賦予任何變數。</li>
+</ul>
+<p>可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators" target="_blank" rel="noopener">運算式與運算子 MDN</a> 內的運算式 part。</p>
+<h2 id="陳述式不能作為值進行賦予"><a href="#陳述式不能作為值進行賦予" class="headerlink" title="陳述式不能作為值進行賦予"></a>陳述式不能作為值進行賦予</h2><p>以下範例為陳述式，語法並沒有錯誤也可以正常執行，但若我們將 if 陳述式賦予到 a 變數時，則會發生錯誤，這是因為我們上面提到的，陳述式並不會回傳一個結果，所以會發生錯誤。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 陳述式</span></span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="keyword">if</span>(<span class="number">1</span> === <span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 將陳述式賦予到變數上</span></span><br><span class="line">a = <span class="keyword">if</span>(<span class="number">1</span> === <span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 會跳錯</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">person.age <span class="comment">//目標物件的屬性，20</span></span><br><span class="line">person.interests[<span class="number">1</span>] <span class="comment">//陣列屬性，看電視</span></span><br><span class="line">person.sayHello() <span class="comment">//呼叫函式，Hello</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/BBS3QnA.png" alt></p>
+<h2 id="函式陳述式與函式表達式"><a href="#函式陳述式與函式表達式" class="headerlink" title="函式陳述式與函式表達式"></a>函式陳述式與函式表達式</h2><h3 id="函式陳述式"><a href="#函式陳述式" class="headerlink" title="函式陳述式"></a>函式陳述式</h3><p>又稱為具名函式。我們這邊直接宣告一個函式並給予一個名稱，所以是函式的陳述式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="括弧記法-Bracket-notation"><a href="#括弧記法-Bracket-notation" class="headerlink" title="括弧記法 (Bracket notation)"></a>括弧記法 (Bracket notation)</h2><p>括弧記法則是另一個存取屬性的方法，是透過各屬性相關的名稱來選擇項目</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">person[<span class="string">'age'</span>] <span class="comment">// 20</span></span><br><span class="line">person[<span class="string">'name'</span>][<span class="string">'first'</span>] <span class="comment">// 弟弟</span></span><br></pre></td></tr></table></figure>
+<h3 id="函式表達式"><a href="#函式表達式" class="headerlink" title="函式表達式"></a>函式表達式</h3><p>又稱為匿名函式。我們這邊先宣告一個變數，然後再把後面的函式<strong>賦值</strong>到變數上，所以是函式的表達式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上兩種函式在 hoisting 的結果會有差別，可以參考 <a href="/2019/10/18/2019-10-18-提升-hoisting/" title="JavaScript核心概念 - 提升(Hoisting)">JavaScript核心概念 - 提升(Hoisting)</a> 這篇。</p>
+<h2 id="Block-區塊與物件實字"><a href="#Block-區塊與物件實字" class="headerlink" title="Block 區塊與物件實字"></a>Block 區塊與物件實字</h2><p>Block 區塊屬於陳述式，可以用來定義 ES6 語法的作用域，例如 let 及 const，我們在 Block 中用 const 宣告一個常數，但在 Block 外調用 a 常數變數時，是無法取得的。<br>最後，因為陳述式並不會 return 值，當然也無法賦予到變數上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// block 陳述式</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 無法取得 a 變數</span></span><br><span class="line"><span class="comment">// 賦值到變數上會跳錯， Uncaught SyntaxError: Unexpected identifier</span></span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/C0m7WPN.png" alt><br>下面的語法我們稱為<strong>物件實字</strong>，是 JavaScript 定義物件的一種方法，為函式表達式，因為他是表達式，會 return 一個值，而在這邊是 return 一個物件，所以我們可以賦予到變數上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 物件實字 （JavaScript 定義物件的一種方法，為函式表達式）</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 賦值到變數上是OK的，表達式會 return 一個物件</span></span><br><span class="line"><span class="keyword">var</span> c = &#123;</span><br><span class="line">  a: <span class="number">1</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -518,8 +534,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/12/2019-8-16-JavaScript取得當前時間/" rel="next" title="JavaScript - 取得當前時間的方法">
-                <i class="fa fa-chevron-left"></i> JavaScript - 取得當前時間的方法
+              <a href="/2019/10/25/2019-10-25-Notdefined及undefined/" rel="next" title="JavaScript核心概念 - Not defined 、 undefined 、 null 的區分">
+                <i class="fa fa-chevron-left"></i> JavaScript核心概念 - Not defined 、 undefined 、 null 的區分
               </a>
             
           </div>
@@ -528,8 +544,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/" rel="prev" title="JavaScript核心概念 - JavaScript是如何運行？">
-                JavaScript核心概念 - JavaScript是如何運行？ <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/26/2019-10-26-初學Promise/" rel="prev" title="Promise - 處理同步、非同步事件 - 1">
+                Promise - 處理同步、非同步事件 - 1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -690,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#點記法-Dot-notation"><span class="nav-number">1.</span> <span class="nav-text">點記法 (Dot notation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#括弧記法-Bracket-notation"><span class="nav-number">2.</span> <span class="nav-text">括弧記法 (Bracket notation)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#陳述式（Statement）"><span class="nav-number">1.</span> <span class="nav-text">陳述式（Statement）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表達式（Expression）"><span class="nav-number">2.</span> <span class="nav-text">表達式（Expression）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陳述式不能作為值進行賦予"><span class="nav-number">3.</span> <span class="nav-text">陳述式不能作為值進行賦予</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函式陳述式與函式表達式"><span class="nav-number">4.</span> <span class="nav-text">函式陳述式與函式表達式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函式陳述式"><span class="nav-number">4.1.</span> <span class="nav-text">函式陳述式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函式表達式"><span class="nav-number">4.2.</span> <span class="nav-text">函式表達式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-區塊與物件實字"><span class="nav-number">5.</span> <span class="nav-text">Block 區塊與物件實字</span></a></li></ol></div>
             
 
           </div>
