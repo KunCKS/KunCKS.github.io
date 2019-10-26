@@ -94,13 +94,23 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ASin&#39;s Web Learning">
-<meta property="og:url" content="https://kuncks.github.io/archives/2019/page/2/index.html">
+  <meta name="description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise - 處理同步、非同步事件 - 1">
+<meta property="og:url" content="https://kuncks.github.io/2019/10/26/2019-10-25-Promise-處理同步、非同步事件-1/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
+<meta property="og:description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https://ithelp.ithome.com.tw/upload/images/20181014/201103713ObcIuaSP4.jpg">
+<meta property="og:image" content="https://i.imgur.com/PbcjInk.png">
+<meta property="og:image" content="https://i.imgur.com/0b3qBN7.gif">
+<meta property="og:image" content="https://i.imgur.com/p62pdhH.gif">
+<meta property="og:updated_time" content="2019-10-26T11:31:00.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ASin&#39;s Web Learning">
+<meta name="twitter:title" content="Promise - 處理同步、非同步事件 - 1">
+<meta name="twitter:description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
+<meta name="twitter:image" content="https://ithelp.ithome.com.tw/upload/images/20181014/201103713ObcIuaSP4.jpg">
 
 
 
@@ -108,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="https://kuncks.github.io/archives/2019/page/2/">
+  <link rel="canonical" href="https://kuncks.github.io/2019/10/26/2019-10-25-Promise-處理同步、非同步事件-1/">
 
 
 
@@ -119,7 +129,7 @@
 </script>
 
   
-  <title>歸檔 | ASin's Web Learning</title>
+  <title>Promise - 處理同步、非同步事件 - 1 | ASin's Web Learning</title>
   
 
 
@@ -178,7 +188,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/kuncks" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,7 +274,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -330,210 +340,208 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kuncks.github.io/2019/10/26/2019-10-25-Promise-處理同步、非同步事件-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ASin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ASin's Web Learning">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Promise - 處理同步、非同步事件 - 1
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+
           
-        
-        嗯..! 目前共有 14 篇文章。 繼續努力。
-      </span>
-      
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+          
 
-        
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+              
+                
+              
 
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/16/2019-10-16-JavaScript核心概念-LHS、RHS是什麼？/" itemprop="url">
+              <time title="創建時間：2019-10-26 14:58:20 / 修改時間：19:31:00" itemprop="dateCreated datePublished" datetime="2019-10-26T14:58:20+08:00">2019-10-26</time>
+            </span>
+          
+
+          
             
-              <span itemprop="name">JavaScript核心概念 - LHS、RHS是什麼？</span>
+
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-16T11:20:21+08:00" content="2019-10-16">
-          10-16
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
+            
+            
+          
 
+          
+          
 
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/16/2019-10-16-JavaScript核心概念-JavaScript是如何運行？/" itemprop="url">
-            
-              <span itemprop="name">JavaScript核心概念 - JavaScript是如何運行？</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-16T09:32:05+08:00" content="2019-10-16">
-          10-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <h2 id="callback-hell"><a href="#callback-hell" class="headerlink" title="callback hell"></a>callback hell</h2><p>JavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（<a href="/2019/10/22/2019-10-22-為何setTimeout不一定會在1秒後執行呢？/" title="參考這邊">參考這邊</a>），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。<br><img src="https://ithelp.ithome.com.tw/upload/images/20181014/201103713ObcIuaSP4.jpg" alt></p>
+<h2 id="Promise-的狀態與流程"><a href="#Promise-的狀態與流程" class="headerlink" title="Promise 的狀態與流程"></a>Promise 的狀態與流程</h2><p>Promise 物件會有以下這幾種狀態：</p>
+<ul>
+<li>pending: 等待中的初始狀態</li>
+<li>fulfilled: 正確完成</li>
+<li>rejected: 已拒絕，操作失敗</li>
+</ul>
+<p>剛進入 Promise 時，我們會進入 pending (等待事件完成)的狀態，接下來會依據事件的成功與否來回傳成功或拒絕的 callback，通常我們會使用 <code>resolve</code>、<code>reject</code> 兩個變數來傳送成功與失敗的訊息(資料)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myFirstPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  resolve(someValue); <span class="comment">// fulfilled</span></span><br><span class="line">  reject(<span class="string">'failure reason'</span>); <span class="comment">// rejected</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-        
-        
+<p>以下圖為範例，ASin 一開始在原地準備要跑步，此時他有兩種結果，一種是他正確的完成跑步這件事，最後他回報他跑了幾秒鐘；另一種結果是他拒絕跑步這件事，為什麼？他回報他就是不想跑步了。</p>
+<p><img src="https://i.imgur.com/PbcjInk.png" alt="Promise 流程圖"><br>我們將這整個過程寫成 Promise 物件來進行，可得以下的原始碼，首先，我們利用建構式建立一個 Promise 物件，並將此物件賦予給 running 這個變數，在 Promise 物件中引用 <code>resolve</code>、<code>reject</code> 變數來做 fulfilled 或 rejected 狀態時的訊息(資料)傳遞，在此我們寫了隨機產生是否要跑步及跑步秒數的變數，帶入我們的 if…else 陳述式，當 run 為 true (確定跑步,fulfilled)時，則調用 resolve() 來傳遞跑了幾秒鐘，若是 run 為 false，則調用 reject() 來傳遞不想跑了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> running = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 使用 resolve、reject 兩個變數來傳送訊息</span></span><br><span class="line">  <span class="keyword">let</span> run = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">2</span>); <span class="comment">// 隨機產生 0 或 1 同 false or true</span></span><br><span class="line">  <span class="keyword">let</span> duration = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span>) + <span class="number">1</span>; <span class="comment">// 隨機產生 0 ~ 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'隨機是否要跑步：'</span> + run, <span class="string">'預計跑步秒數：'</span> + duration);</span><br><span class="line">  <span class="keyword">if</span> (run) &#123;</span><br><span class="line">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">'跑了'</span> + duration + <span class="string">'秒'</span>);</span><br><span class="line">    &#125;, duration * <span class="number">1000</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="string">'我不想跑了'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">running</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/16/2019-8-16-about-assess-object's properties/" itemprop="url">
-            
-              <span itemprop="name">JavaScript - 關於物件存取屬性的方法</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-16T14:39:28+08:00" content="2019-08-16">
-          08-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<p>最後，我們如何去執行這個物件來處理非同步與同步事件並接收訊息呢？<br>我們可以使用 <code>then()</code>及 <code>catch()</code>來接收，從範例中可以看到，當 Promise 中執行的條件有滿足時，我們在<code>then()</code>傳入一個 function 並使用 data 變數來接收 fulfilled 狀態所傳遞的訊息，同樣的 rejected 狀態則是使用<code>catch()</code>來接收。<br><img src="https://i.imgur.com/0b3qBN7.gif" alt="Promise執行結果-fulfilled"><br><img src="https://i.imgur.com/p62pdhH.gif" alt="Promise執行結果-rejected"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/08/12/2019-8-16-JavaScript取得當前時間/" itemprop="url">
-            
-              <span itemprop="name">JavaScript - 取得當前時間的方法</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-12T23:27:43+08:00" content="2019-08-12">
-          08-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/26/2019-10-26-陳述式與表達式/" rel="next" title="JavaScript核心概念 - 陳述式與表達式">
+                <i class="fa fa-chevron-left"></i> JavaScript核心概念 - 陳述式與表達式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/26/2019-10-25-Promise-處理同步、非同步事件-2/" rel="prev" title="Promise - 處理同步、非同步事件 - 2">
+                Promise - 處理同步、非同步事件 - 2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -553,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概要
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -649,6 +666,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#callback-hell"><span class="nav-number">1.</span> <span class="nav-text">callback hell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-的狀態與流程"><span class="nav-number">2.</span> <span class="nav-text">Promise 的狀態與流程</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -776,6 +810,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.2.0"></script>
 
@@ -796,6 +834,8 @@
 
 
 
+
+  
 
 
 
