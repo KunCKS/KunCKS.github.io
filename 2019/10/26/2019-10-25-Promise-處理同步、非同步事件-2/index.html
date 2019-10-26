@@ -97,7 +97,7 @@
   <meta name="description" content="上一篇(參考這邊)我們已經學習到如何簡單的建立 promise 物件來處理非同步、同步事件。但若我們想要傳入一些參數給 Promise 使用該怎麼辦呢？ 傳入參數給 Promise 使用其實作法很簡單，我們只要建立一個 function 來包原本的 Promise 物件即可，以下我們同樣用跑步的範例來實作。我們先建立一個 function，並傳入一個參數someone，來指定誰要跑步（也可重複使用">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise - 處理同步、非同步事件 - 2">
+<meta property="og:title" content="Promise - 處理同步、非同步事件 - 2 - all、race 與 chain 鏈結">
 <meta property="og:url" content="https://kuncks.github.io/2019/10/26/2019-10-25-Promise-處理同步、非同步事件-2/index.html">
 <meta property="og:site_name" content="ASin&#39;s Web Learning">
 <meta property="og:description" content="上一篇(參考這邊)我們已經學習到如何簡單的建立 promise 物件來處理非同步、同步事件。但若我們想要傳入一些參數給 Promise 使用該怎麼辦呢？ 傳入參數給 Promise 使用其實作法很簡單，我們只要建立一個 function 來包原本的 Promise 物件即可，以下我們同樣用跑步的範例來實作。我們先建立一個 function，並傳入一個參數someone，來指定誰要跑步（也可重複使用">
@@ -107,9 +107,9 @@
 <meta property="og:image" content="https://i.imgur.com/wbj8LGO.gif">
 <meta property="og:image" content="https://i.imgur.com/XzEzlb4.gif">
 <meta property="og:image" content="https://i.imgur.com/3uqsKth.gif">
-<meta property="og:updated_time" content="2019-10-26T13:25:07.082Z">
+<meta property="og:updated_time" content="2019-10-26T13:41:15.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise - 處理同步、非同步事件 - 2">
+<meta name="twitter:title" content="Promise - 處理同步、非同步事件 - 2 - all、race 與 chain 鏈結">
 <meta name="twitter:description" content="上一篇(參考這邊)我們已經學習到如何簡單的建立 promise 物件來處理非同步、同步事件。但若我們想要傳入一些參數給 Promise 使用該怎麼辦呢？ 傳入參數給 Promise 使用其實作法很簡單，我們只要建立一個 function 來包原本的 Promise 物件即可，以下我們同樣用跑步的範例來實作。我們先建立一個 function，並傳入一個參數someone，來指定誰要跑步（也可重複使用">
 <meta name="twitter:image" content="https://i.imgur.com/PbcjInk.png">
 
@@ -130,7 +130,7 @@
 </script>
 
   
-  <title>Promise - 處理同步、非同步事件 - 2 | ASin's Web Learning</title>
+  <title>Promise - 處理同步、非同步事件 - 2 - all、race 與 chain 鏈結 | ASin's Web Learning</title>
   
 
 
@@ -378,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Promise - 處理同步、非同步事件 - 2
+          <h1 class="post-title" itemprop="name headline">Promise - 處理同步、非同步事件 - 2 - all、race 與 chain 鏈結
 
               
             
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="創建時間：2019-10-26 19:26:15 / 修改時間：21:25:07" itemprop="dateCreated datePublished" datetime="2019-10-26T19:26:15+08:00">2019-10-26</time>
+              <time title="創建時間：2019-10-26 19:26:15 / 修改時間：21:41:15" itemprop="dateCreated datePublished" datetime="2019-10-26T19:26:15+08:00">2019-10-26</time>
             </span>
           
 
@@ -455,8 +455,8 @@
 <p><img src="https://i.imgur.com/eUabNzo.gif" alt="Promise 外部帶入參數實作"></p>
 <h2 id="Promise-all-、Promise-race-傳入多個-Promise-事件"><a href="#Promise-all-、Promise-race-傳入多個-Promise-事件" class="headerlink" title="Promise.all( )、Promise.race( ) 傳入多個 Promise 事件"></a>Promise.all( )、Promise.race( ) 傳入多個 Promise 事件</h2><p>有時候一個人跑步很無聊想找人陪伴，若是多個人跑步時那要怎麼操作呢？<br>此時我們有兩種方法可以一次傳入多個 Promise 事件：</p>
 <ul>
-<li><strong>all</strong>：同時執行多個 Promise 事件，在<strong>全部完成後統一將訊息以陣列回傳</strong>。</li>
-<li><strong>race</strong>：同時執行多個 Promise 事件，這個方法<strong>僅會回傳第一個完成的訊息</strong>。</li>
+<li><strong>all</strong>：<strong>同時</strong>執行多個 Promise 事件，在<strong>全部完成後統一將訊息以陣列回傳</strong>。</li>
+<li><strong>race</strong>：<strong>同時</strong>執行多個 Promise 事件，這個方法<strong>僅會回傳第一個完成的訊息</strong>。</li>
 </ul>
 <p>以下我們同樣用上面範例的 Promise 物件來實作多個 Promise 事件。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> running = <span class="function"><span class="params">someone</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> run = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">let</span> duration = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span>) + <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    someone + <span class="string">' '</span> + <span class="string">'考慮是否要跑步：'</span> + run,</span><br><span class="line">    <span class="string">'預計跑步秒數：'</span> + duration</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (run) &#123;</span><br><span class="line">      <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(someone + <span class="string">' 跑了 '</span> + duration + <span class="string">' 秒'</span>);</span><br><span class="line">      &#125;, duration * <span class="number">1000</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      reject(someone + <span class="string">' 不想跑了'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">running(<span class="string">'ASin'</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
@@ -526,6 +526,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/10/26/2019-10-25-Promise-處理同步、非同步事件-3/" rel="prev" title="Promise - 處理同步、非同步事件 - 3 - Await 與 Async">
+                Promise - 處理同步、非同步事件 - 3 - Await 與 Async <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -594,7 +598,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
