@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://i.imgur.com/PbcjInk.png">
 <meta property="og:image" content="https://i.imgur.com/0b3qBN7.gif">
 <meta property="og:image" content="https://i.imgur.com/p62pdhH.gif">
-<meta property="og:updated_time" content="2019-10-26T14:35:42.925Z">
+<meta property="og:updated_time" content="2019-12-04T01:33:08.599Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise - 處理同步、非同步事件 - 1">
 <meta name="twitter:description" content="callback hellJavaScript 中有很多非同步的事件，例如：AJAX、setTimeout、各種 event 事件(click,onchange…)等，由於 JavaScript 為單執行緒的程式語言（參考這邊），這些事件我們很常使用 callback，在一層包一層後就會出現知名的 callback 地獄，而 ES6 開始新增了 Promise 物件就是為了解決此問題而生的。 Pr">
@@ -403,13 +403,23 @@
                 
               
 
-              <time title="創建時間：2019-10-26 14:58:20 / 修改時間：22:35:42" itemprop="dateCreated datePublished" datetime="2019-10-26T14:58:20+08:00">2019-10-26</time>
+              <time title="創建時間：2019-10-26 14:58:20" itemprop="dateCreated datePublished" datetime="2019-10-26T14:58:20+08:00">2019-10-26</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新於</span>
+                
+                <time title="修改時間：2019-12-04 09:33:08" itemprop="dateModified" datetime="2019-12-04T09:33:08+08:00">2019-12-04</time>
+              </span>
             
           
 
@@ -459,7 +469,7 @@
 
 <p>以下圖為範例，ASin 一開始在原地準備要跑步，此時他有兩種結果，一種是他正確的完成跑步這件事，最後他回報他跑了幾秒鐘；另一種結果是他拒絕跑步這件事，為什麼？他回報他就是不想跑步了。</p>
 <p><img src="https://i.imgur.com/PbcjInk.png" alt="Promise 流程圖"><br>我們將這整個過程寫成 Promise 物件來進行，可得以下的原始碼，首先，我們利用建構式建立一個 Promise 物件，並將此物件賦予給 running 這個變數，在 Promise 物件中引用 <code>resolve</code>、<code>reject</code> 變數來做 fulfilled 或 rejected 狀態時的訊息(資料)傳遞，在此我們寫了隨機產生是否要跑步及跑步秒數的變數，帶入我們的 if…else 陳述式，當 run 為 true (確定跑步,fulfilled)時，則調用 resolve() 來傳遞跑了幾秒鐘，若是 run 為 false，則調用 reject() 來傳遞不想跑了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> running = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 使用 resolve、reject 兩個變數來傳送訊息</span></span><br><span class="line">  <span class="keyword">let</span> run = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">2</span>); <span class="comment">// 隨機產生 0 或 1 同 false or true</span></span><br><span class="line">  <span class="keyword">let</span> duration = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span>) + <span class="number">1</span>; <span class="comment">// 隨機產生 0 ~ 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'隨機是否要跑步：'</span> + run, <span class="string">'預計跑步秒數：'</span> + duration);</span><br><span class="line">  <span class="keyword">if</span> (run) &#123;</span><br><span class="line">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">'跑了'</span> + duration + <span class="string">'秒'</span>);</span><br><span class="line">    &#125;, duration * <span class="number">1000</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="string">'我不想跑了'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">running</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> running = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 使用 resolve、reject 兩個變數來傳送訊息</span></span><br><span class="line">  <span class="keyword">let</span> run = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">2</span>); <span class="comment">// 隨機產生 0 或 1 同 false or true</span></span><br><span class="line">  <span class="keyword">let</span> duration = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">10</span>) + <span class="number">1</span>; <span class="comment">// 隨機產生 1 ~ 10</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'隨機是否要跑步：'</span> + run, <span class="string">'預計跑步秒數：'</span> + duration);</span><br><span class="line">  <span class="keyword">if</span> (run) &#123;</span><br><span class="line">    <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">'跑了'</span> + duration + <span class="string">'秒'</span>);</span><br><span class="line">    &#125;, duration * <span class="number">1000</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="string">'我不想跑了'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">running</span><br><span class="line">  .then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
 <p>最後，我們如何去執行這個物件來處理非同步與同步事件並接收訊息呢？<br>我們可以使用 <code>then()</code>及 <code>catch()</code>來接收，從範例中可以看到，當 Promise 中執行的條件有滿足時，我們在<code>then()</code>傳入一個 function 並使用 data 變數來接收 fulfilled 狀態所傳遞的訊息，同樣的 rejected 狀態則是使用<code>catch()</code>來接收。<br><img src="https://i.imgur.com/0b3qBN7.gif" alt="Promise執行結果-fulfilled"><br><img src="https://i.imgur.com/p62pdhH.gif" alt="Promise執行結果-rejected"></p>
 
@@ -587,7 +597,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -627,7 +637,11 @@
         
           
         
-        <span class="site-state-item-count">1</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">標籤</span>
         </a>
       </div>
